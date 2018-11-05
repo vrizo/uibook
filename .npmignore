@@ -1,0 +1,9 @@
+test/
+*.log
+yarn.lock
+.gitignore
+.npmignore
+.travis.yml
+node_modules
+.editorconfig
+.vscode

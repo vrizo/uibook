@@ -1,0 +1,29 @@
+{
+  "extends": "eslint-config-logux/browser",
+  "rules": {
+    "security/detect-possible-timing-attacks": "off",
+    "node/no-missing-require": ["error", {
+      "allowModules": ["webpack"]
+    }],
+    "multiline-ternary": [
+      "error",
+      "always-multiline"
+    ],
+    "func-style": ["error", "expression"],
+    "no-console": "error"
+  },
+  "env": {
+    "browser": true,
+    "es6": false
+  },
+  "overrides": [
+    {
+      "files": [ "index.js" ],
+      "rules": {
+        "es5/no-block-scoping": "off",
+        "es5/no-es6-methods": "off",
+        "es5/no-classes": "off"
+      }
+    }
+  ]
+}

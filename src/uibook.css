@@ -1,0 +1,125 @@
+.uibook-html,
+.uibook-body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+#uibook-root {
+  height: 100%;
+}
+
+.uibook-iframe {
+  border: 0;
+}
+
+.uibook-page {
+  transition: background 300ms;
+  min-height: 100%;
+}
+
+.uibook-container {
+  padding: 10px 0;
+  z-index: 1;
+}
+
+.uibook-case {
+  padding: 0 10px 10px 10px;
+}
+
+.uibook-top {
+  z-index: 2;
+}
+
+.uibook-header {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+  padding: 2px 5px;
+}
+
+.uibook-arrow {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.uibook-select {
+  width: 200px;
+  height: 28px;
+  text-align-last: center;
+  cursor: pointer;
+  background: #f2f2f2;
+  border: none;
+  transition: background 300ms;
+  appearance: none;
+}
+
+.uibook-link {
+  height: 28px;
+  padding: 0 8px;
+  line-height: 28px;
+  color: black;
+  text-decoration: none;
+}
+
+.uibook-link:hover,
+.uibook-arrow:hover,
+.uibook-select:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.uibook-link:focus,
+.uibook-arrow:focus,
+.uibook-select:focus {
+  box-shadow:
+    0 0 0 2px #009aff,
+    0 0 7px 0 #009aff;
+}
+
+.uibook-loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 10;
+  left: 0;
+  background: cyan;
+}
+
+.uibook-loader__position {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.uibook-event {
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
+}
+
+.uibook-event__position {
+  position: fixed;
+  top: 0;
+  left: calc(50% - 210px);
+  width: 420px;
+}
+
+.uibook-event__name {
+  font-weight: bold;
+}
+
+.uibook-code {
+  display: block;
+  margin-bottom: 10px;
+}
