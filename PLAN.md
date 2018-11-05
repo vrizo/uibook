@@ -33,7 +33,9 @@ Conflict: Multiple assets emit to the same filename static/js/bundle.js
 
 If you're using HTML web pack plugin, then excludeChunks: ['uibook'], !!!11
 
-TODO:
+## TODO
+
+```
 + исправить null в хеше
 + открывать первую страницу при запуске
 + исправить ошибки из-за key в консоли
@@ -76,6 +78,7 @@ TODO:
 - добавить сообщение, что нужно сделать excludeChunks
 - `create-react-app` не поддерживает плагины, не дает конфигурировать вебпак, поэтому нужны хаки (придумать способ)
 - PropTypes?
+```
 
 Может быть:
 - `name` переименовать в `title` — заголовок страницы
