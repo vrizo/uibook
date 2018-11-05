@@ -169,8 +169,8 @@ var UibookController = createReactClass({
       var other = this.state.locale === 'en' ? 'ru' : 'en'
 
       return this.state.height[key + this.state.locale] ||
-              this.state.height[key + other] ||
-              50
+             this.state.height[key + other] ||
+             150
     }
   },
 
@@ -205,7 +205,8 @@ var UibookController = createReactClass({
                   height: this.height(i, index),
                   width: i.width || '100%'
                 },
-                src: this.frameUrl(index)
+                src: this.frameUrl(index),
+                key: 'iframe'
               })
             ])
           ])

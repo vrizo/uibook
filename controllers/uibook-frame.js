@@ -15,7 +15,7 @@ var UibookFrameController = createReactClass({
     return { }
   },
 
-  params: function () {
+  atts: function () {
     var result = { }
     location.search.slice(1).split('&').forEach(function (i) {
       var name = i.split('=')[0]
@@ -26,10 +26,10 @@ var UibookFrameController = createReactClass({
   },
 
   render: function () {
-    var params = this.params()
-    return h('main', null, [
-      this.getPage(params.page).cases[params.case].body(params.locale)
-    ])
+    var atts = this.atts()
+    var content = this.getPage(atts.page).cases[atts.case].body(atts.locale)
+
+    return h('main', null, content)
   }
 })
 
