@@ -87,10 +87,21 @@
 .uibook-loader {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 10;
   left: 0;
-  background: cyan;
+  right: 0;
+  bottom: 0;
+  background:
+  repeating-linear-gradient(
+    -45deg,
+    #f2f2f2 0,
+    #f2f2f2 10px,
+    #ccc    10px,
+    #ccc    20px,
+    #f2f2f2 20px,
+    #f2f2f2 30px,
+    #ccc    30px,
+    #ccc    40px
+  );
 }
 
 .uibook-loader__position {

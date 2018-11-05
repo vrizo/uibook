@@ -5,8 +5,8 @@ var Position = function (props) {
   return h('div', { className: 'uibook-loader__position' }, props.children)
 }
 
-var Loader = function (props) {
-  return h('div', { className: 'uibook-loader' }, props.children)
+var Loader = function () {
+  return h('div', { className: 'uibook-loader' })
 }
 
 var UibookLoader = function (props) {
@@ -15,11 +15,9 @@ var UibookLoader = function (props) {
 
   return h(Position, null, [
     h('div', {
-      style: { opacity: isLoading ? 0 : 1 }
-    }, [
-      children
-    ]),
-    isLoading ? h(Loader) : null
+      style: { opacity: isLoading ? 0 : 1, key: 'content' }
+    }, children),
+    isLoading ? h(Loader, { key: 'loader' }) : null
   ])
 }
 
