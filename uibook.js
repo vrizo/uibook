@@ -15,6 +15,7 @@ var UibookStarter = function (config) {
     }
 
     ReactDOM.render(h(Controller, {
+      wrapper: config.wrapper,
       pages: config.pages
     }), tag)
   }

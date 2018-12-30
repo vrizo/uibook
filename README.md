@@ -141,3 +141,9 @@ This will render a small popup on Uibook Page when triggered.
 ### Hot keys
 
 - Arrows change pages
+
+### Special thanks
+
+@ai
+@iadramelk
+@demiazz

@@ -15,7 +15,8 @@ var UibookLoader = function (props) {
 
   return h(Position, null, [
     h('div', {
-      style: { opacity: isLoading ? 0 : 1, key: 'content' }
+      style: { opacity: isLoading ? 0 : 1 },
+      key: 'content'
     }, children),
     isLoading ? h(Loader, { key: 'loader' }) : null
   ])

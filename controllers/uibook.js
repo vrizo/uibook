@@ -9,6 +9,14 @@ var Uibook = require('../components/index')
 
 var lastEventID = 0
 
+var Wrapper = function (props) {
+  if (props.wrapper) {
+    return props.wrapper(props.children)
+  } else {
+    return props.children
+  }
+}
+
 var UibookController = createReactClass({
   pages: [],
 
@@ -177,7 +185,7 @@ var UibookController = createReactClass({
   render: function () {
     var page = this.getPage(this.state.page || this.pages[0])
 
-    return h(Uibook, {
+    return h(Wrapper, { wrapper: this.props.wrapper }, h(Uibook, {
       onPageChange: this.changePage,
       background: page.background || 'default',
       onNextPage: this.nextPage,
@@ -197,7 +205,10 @@ var UibookController = createReactClass({
           return h('div', { key: key }, h(component.type, combinedProps))
         } else {
           return h(UibookCase, { key: key, example: i.example || '' }, [
-            h(UibookLoader, { key: key, isLoading: !this.state.loaded[key] }, [
+            h(UibookLoader, {
+              isLoading: !this.state.loaded[key],
+              key: 'loader' + key
+            }, [
               h('iframe', {
                 className: 'uibook-iframe',
                 onLoad: this.loaded.bind(this, index),
@@ -206,14 +217,14 @@ var UibookController = createReactClass({
                   width: i.width || '100%'
                 },
                 src: this.frameUrl(index),
-                key: 'iframe'
+                key: 'iframe' + key
               })
             ])
           ])
         }
       }.bind(this))
       : null
-    )
+    ))
   }
 })
 
