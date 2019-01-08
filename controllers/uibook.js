@@ -109,7 +109,11 @@ var UibookController = createReactClass({
 
   changeValue: function (event) {
     var state = this.state
-    state[event.target.id] = event.target.value
+    if (typeof this.props.values[event.target.id][0] === 'number') {
+      state[event.target.id] = parseInt(event.target.value)
+    } else {
+      state[event.target.id] = event.target.value
+    }
     this.setState(state)
   },
 
