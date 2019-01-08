@@ -104,7 +104,6 @@ where:
 before Test Component
 - `props` — set of necessary props
 – `text` — string child of the Component
-<!-- - `i18n` _(optional)_ -->
 
 #### Mobile Cases
 Mobile Cases will be rendered in an iframe to emulate

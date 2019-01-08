@@ -17,6 +17,20 @@
 Юибук должен быть супер простым, одной строкой и в проде.
 
 ======
+
+Локально обновить зависимость:
+
+```
+$ yarn upgrade uibook-plugin
+```
+
+или
+
+```
+$ cd .. && rm -drf my-app/node_modules/uibook-plugin && cp -R uibook-plugin my-app/node_modules/uibook-plugin && cd my-app && yarn start
+```
+
+======
 15.09:
 
 ```
@@ -61,9 +75,17 @@ If you're using HTML web pack plugin, then excludeChunks: ['uibook'], !!!11
 + конфигурируемый output path (с фильтрацией слэшей)
 + добавить индикацию загрузки iframe
 + добавить возможность добавлять свой стор, провайдер и т.п. (Wrapper)
++ добавить возможность переключать пользовательские параметры в контексте
+wrapper: (children, props) => <Context.Provider value={props}>{ children }</Context.Provider>
+values: {
+  locale: ['ru', 'en'],
+  theme: ['dark', 'light']
+}
++ проброс текущей локали в контекст
++ больше локалей из конфига (ru/en)
+
 - добавить проверку, удалось ли найти main в iframe. Если нет, то рендерить ошибку
 - исправить ошибку переиспользования синтетического события
-- проброс текущей локали в контекст — КАК?
 - может все-таки добавить гиперскрипт? А то эти ключи достают. Самому написать, проверять typeof atts, брать первый элемент массива
 - может все-таки лучше использовать привычный большинству массив вместо объекта `pages` в пользовательском контроллере?
 - no pages view
@@ -73,7 +95,6 @@ If you're using HTML web pack plugin, then excludeChunks: ['uibook'], !!!11
 - проверить, что еще случайно из ES6 (легко — yarn build)
 - добавить сообщение, что нужно сделать excludeChunks
 - добавить deepForceUpdate, если он нужен
-- больше локалей из конфига (ru/en)
 - stringify jsx mode (example в виде jsx, а не hyperscript)
 - подумать над Immutable в stringify
 - добавить тесты, lint-staged

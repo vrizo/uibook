@@ -23,12 +23,14 @@ var Uibook = function (props) {
       h(UibookEvents, { events: props.events })
     ),
     h(UibookHeader, {
+      onValueChange: props.onValueChange,
       onPageChange: props.onPageChange,
       onNextPage: props.onNextPage,
       onPrevPage: props.onPrevPage,
-      locale: props.locale,
+      values: props.values,
       color: THEMES[props.background],
       pages: props.pages,
+      state: props.state,
       page: props.page,
       key: 'header'
     }),

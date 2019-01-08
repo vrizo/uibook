@@ -1,8 +1,7 @@
 var React = require('react')
 var h = React.createElement
 
-var UibookSelect = require('./select')
-var UibookLocale = require('./locale')
+var UibookPageSelect = require('./select')
 var fixClick = require('../lib/fix-click')
 
 var Header = function (props) {
@@ -19,6 +18,18 @@ var UibookHeader = function (props) {
     fixClick(e)
   }
 
+  var selectors = []
+  if (props.values) {
+    for (var key in props.values) {
+      if (props.values[key]) {
+        selectors.push({
+          key: key,
+          values: props.values[key]
+        })
+      }
+    }
+  }
+
   return h(Header, { key: 'header' }, [
     h('div', { key: 'controls' }, [
       h('button', {
@@ -27,7 +38,7 @@ var UibookHeader = function (props) {
         key: '←'
       }, '←'),
       ' ',
-      h(UibookSelect, {
+      h(UibookPageSelect, {
         onPageChange: props.onPageChange,
         color: props.color,
         pages: props.pages,
@@ -41,11 +52,20 @@ var UibookHeader = function (props) {
         key: '→'
       }, '→')
     ]),
-    props.locale
-      ? h(UibookLocale, {
-        locale: props.locale,
-        page: props.page,
-        key: 'locale'
+    selectors.length > 0
+      ? selectors.map(function (selector) {
+        return h('select', {
+          className: 'uibook-select',
+          onChange: props.onValueChange,
+          value: props.state[selector.key],
+          key: selector.key,
+          id: selector.key
+        }, selector.values.map(function (value) {
+          return h('option', {
+            value: value,
+            key: selector.key + value
+          }, value)
+        }))
       })
       : null
   ])

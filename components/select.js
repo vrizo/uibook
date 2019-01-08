@@ -2,7 +2,7 @@ var createReactClass = require('create-react-class')
 var React = require('react')
 var h = React.createElement
 
-var UibookSelect = createReactClass({
+var UibookPageSelect = createReactClass({
   change: function (e) {
     this.props.onPageChange(e.target.value)
     e.target.blur()
@@ -31,7 +31,7 @@ var UibookSelect = createReactClass({
     }.bind(this))
 
     return h('select', {
-      className: 'uibook-select',
+      className: 'uibook-select uibook-page-select',
       onChange: this.change,
       style: { background: this.props.color },
       value: this.props.page || ''
@@ -39,4 +39,4 @@ var UibookSelect = createReactClass({
   }
 })
 
-module.exports = UibookSelect
+module.exports = UibookPageSelect

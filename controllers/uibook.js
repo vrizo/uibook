@@ -11,7 +11,11 @@ var lastEventID = 0
 
 var Wrapper = function (props) {
   if (props.wrapper) {
-    return props.wrapper(props.children)
+    var values = {}
+    for (var key in props.values) {
+      values[key] = props.state[key]
+    }
+    return props.wrapper(props.children, values)
   } else {
     return props.children
   }
@@ -21,13 +25,23 @@ var UibookController = createReactClass({
   pages: [],
 
   getInitialState: function () {
-    return {
-      locale: 'en',
+    var values = this.props.values
+    var state = {
       height: { },
       loaded: { },
       events: [],
       page: null
     }
+
+    if (values) {
+      for (var key in values) {
+        if (values[key]) {
+          state[key] = values[key][0]
+        }
+      }
+    }
+
+    return state
   },
 
   componentDidMount: function () {
@@ -93,6 +107,12 @@ var UibookController = createReactClass({
     }.bind(this), 3000)
   },
 
+  changeValue: function (event) {
+    var state = this.state
+    state[event.target.id] = event.target.value
+    this.setState(state)
+  },
+
   changePage: function (page) {
     this.setState({ page: page })
   },
@@ -119,7 +139,7 @@ var UibookController = createReactClass({
     var locale = hash[1]
     var pages = this.pages
     if (this.state.page !== page || this.state.locale !== locale) {
-      if (pages.indexOf(page) === -1 || ['ru', 'en'].indexOf(locale) === -1) {
+      if (pages.indexOf(page) === -1) {
         this.changeHash()
       } else {
         this.setState({ page: page, locale: locale })
@@ -152,11 +172,12 @@ var UibookController = createReactClass({
   },
 
   changeHash: function () {
+    var locale = this.state.locale ? ':' + this.state.locale : ''
     var hash
     if (this.state.page) {
-      hash = '#' + this.state.page + ':' + this.state.locale
+      hash = '#' + this.state.page + locale
     } else {
-      hash = '#' + this.pages[0] + ':en'
+      hash = '#' + this.pages[0] + locale
     }
     if (location.hash !== hash) location.hash = hash
   },
@@ -174,25 +195,27 @@ var UibookController = createReactClass({
       return caseObj.height
     } else {
       var key = this.state.page + index
-      var other = this.state.locale === 'en' ? 'ru' : 'en'
-
-      return this.state.height[key + this.state.locale] ||
-             this.state.height[key + other] ||
-             150
+      return this.state.height[key + this.state.locale] || 150
     }
   },
 
   render: function () {
     var page = this.getPage(this.state.page || this.pages[0])
 
-    return h(Wrapper, { wrapper: this.props.wrapper }, h(Uibook, {
+    return h(Wrapper, {
+      wrapper: this.props.wrapper,
+      values: this.props.values,
+      state: this.state
+    }, h(Uibook, {
+      onValueChange: this.changeValue,
       onPageChange: this.changePage,
       background: page.background || 'default',
       onNextPage: this.nextPage,
       onPrevPage: this.prevPage,
-      locale: page.i18n ? this.state.locale : undefined,
       events: this.state.events,
+      values: this.props.values,
       pages: this.props.pages,
+      state: this.state,
       page: this.state.page
     }, page.cases
       ? page.cases.map(function (i, index) {
