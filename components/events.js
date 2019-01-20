@@ -16,7 +16,6 @@ var UibookEvents = createReactClass({
   },
 
   render: function () {
-    console.log("this.props.events: ", this.props.events)
     return h('div', { className: 'uibook-event__position' }, [
       this.props.events.map(function (i) {
         return h('div', { className: 'uibook-event', key: i.id }, [
