@@ -3,23 +3,12 @@ var React = require('react')
 var h = React.createElement
 
 var combineObjects = require('../lib/combine-objects')
+var UibookWrapper = require('../controllers/wrapper')
 var UibookLoader = require('../components/loader')
 var UibookCase = require('../components/case')
 var Uibook = require('../components/index')
 
 var lastEventID = 0
-
-var Wrapper = function (props) {
-  if (props.wrapper) {
-    var values = {}
-    for (var key in props.values) {
-      values[key] = props.state[key]
-    }
-    return props.wrapper(props.children, values)
-  } else {
-    return props.children
-  }
-}
 
 var UibookController = createReactClass({
   pages: [],
@@ -187,11 +176,21 @@ var UibookController = createReactClass({
   },
 
   frameUrl: function (index) {
-    var locale = this.state.locale
-    var page = this.state.page
+    var params = [
+      'page=' + this.state.page,
+      'case=' + index,
+      'iframe=true'
+    ]
 
-    return location.pathname + '/?page=' + page + '&case=' + index +
-      '&locale=' + locale + '&iframe=true'
+    for (var prop in this.props.values) {
+      if (this.state.hasOwnProperty(prop)) {
+        var key = encodeURIComponent(prop)
+        var value = encodeURIComponent(this.state[prop])
+        params.push(key + '=' + value)
+      }
+    }
+
+    return location.pathname + '/?' + params.join('&')
   },
 
   height: function (caseObj, index) {
@@ -206,7 +205,7 @@ var UibookController = createReactClass({
   render: function () {
     var page = this.getPage(this.state.page || this.pages[0])
 
-    return h(Wrapper, {
+    return h(UibookWrapper, {
       wrapper: this.props.wrapper,
       values: this.props.values,
       state: this.state
