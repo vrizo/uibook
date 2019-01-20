@@ -2,6 +2,8 @@ var createReactClass = require('create-react-class')
 var React = require('react')
 var h = React.createElement
 
+var UibookWrapper = require('../controllers/wrapper')
+
 var UibookFrameController = createReactClass({
   pages: [],
 
@@ -29,7 +31,11 @@ var UibookFrameController = createReactClass({
     var atts = this.atts()
     var content = this.getPage(atts.page).cases[atts.case].body(atts.locale)
 
-    return h('main', null, content)
+    return h(UibookWrapper, {
+      wrapper: this.props.wrapper,
+      values: this.props.values,
+      state: atts
+    }, h('main', null, content))
   }
 })
 

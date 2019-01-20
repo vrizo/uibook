@@ -2,8 +2,8 @@ var ReactDOM = require('react-dom')
 var React = require('react')
 var h = React.createElement
 
-var UibookFrameController = require('./controllers/uibook-frame')
-var UibookController = require('./controllers/uibook')
+var UibookFrameController = require('./controllers/frame')
+var UibookController = require('./controllers/index')
 
 var UibookStarter = function (config) {
   window.onload = function () {
