@@ -28,7 +28,6 @@ var UibookCase = function (props) {
   }
 
   return h(Case, null, [
-    // example ? h(UibookHighlight, [example]) : null,
     example
       ? h('code', {
         className: 'uibook-code',

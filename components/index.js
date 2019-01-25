@@ -28,7 +28,6 @@ var Uibook = function (props) {
       onNextPage: props.onNextPage,
       onPrevPage: props.onPrevPage,
       values: props.values,
-      color: THEMES[props.background],
       pages: props.pages,
       state: props.state,
       page: props.page,

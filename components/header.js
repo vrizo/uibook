@@ -37,15 +37,12 @@ var UibookHeader = function (props) {
         onClick: onPrevPage,
         key: '←'
       }, '←'),
-      ' ',
       h(UibookPageSelect, {
         onPageChange: props.onPageChange,
-        color: props.color,
         pages: props.pages,
         page: props.page,
         key: 'select'
       }),
-      ' ',
       h('button', {
         className: 'uibook-arrow',
         onClick: onNextPage,

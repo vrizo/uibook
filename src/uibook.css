@@ -36,34 +36,58 @@
 
 .uibook-header {
   display: flex;
-  justify-content: space-between;
-  height: 28px;
   padding: 2px 5px;
+  flex-wrap: wrap;
+  background: #e60278;
 }
 
 .uibook-arrow {
   display: inline-block;
-  height: 28px;
-  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  height: 32px;
+  padding: 0 10px;
+  line-height: 32px;
   cursor: pointer;
   background: none;
-  border: 0;
-  border-radius: 0;
+  color: white;
+  border: 1px solid white;
 }
 
+.uibook-arrow:hover {
+  color: #e60278;
+  background: white;
+}
+
+.uibook-arrow:first-of-type {
+  border-radius: 3px 0 0 3px;
+}
+
+.uibook-arrow:last-of-type {
+  border-radius: 0 3px 3px 0;
+  margin-right: 5px;
+}
+
+
 .uibook-select {
+  background: white;
   height: 32px;
   padding: 0 15px;
+  margin: 3px 5px 3px 0;
   text-align-last: center;
   cursor: pointer;
-  background: #f2f2f2;
+  border: white;
   border: none;
-  transition: background 300ms;
   appearance: none;
+}
+
+.uibook-select:hover {
+  background: #f2f2f2;
 }
 
 .uibook-page-select {
   width: 200px;
+  margin-right: 0;
 }
 
 .uibook-link {
@@ -74,13 +98,6 @@
   text-decoration: none;
 }
 
-.uibook-link:hover,
-.uibook-arrow:hover,
-.uibook-select:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.uibook-link:focus,
 .uibook-arrow:focus,
 .uibook-select:focus {
   box-shadow:
@@ -136,5 +153,9 @@
 
 .uibook-code {
   display: block;
-  margin-bottom: 10px;
+  color: #b7883a;
+  font-size: 13px;
+  margin: 5px -10px 10px;
+  padding: 4px 14px;
+  background: rgba(255,255,255,0.2);
 }
