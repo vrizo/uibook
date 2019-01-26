@@ -100,7 +100,7 @@ values: {
 - еще подумать над page: null при загрузке
 - проверить, что еще случайно из ES6 (легко — yarn build)
 - добавить сообщение, что нужно сделать excludeChunks
-- добавить deepForceUpdate, если он нужен
+- предотвращать проскролливание до autofocus инпутов при смене страниц
 - stringify jsx mode (example в виде jsx, а не hyperscript)
 - подумать над Immutable в stringify
 - добавить тесты, lint-staged
