@@ -1,7 +1,8 @@
 var React = require('react')
 var h = React.createElement
 
-var UibookPageSelect = require('./select')
+var UibookPageSelect = require('./page-select')
+var UibookSelect = require('./select')
 var fixClick = require('../lib/fix-click')
 
 var Header = function (props) {
@@ -31,28 +32,25 @@ var UibookHeader = function (props) {
   }
 
   return h(Header, { key: 'header' }, [
-    h('div', { key: 'controls' }, [
-      h('button', {
-        className: 'uibook-arrow',
-        onClick: onPrevPage,
-        key: '←'
-      }, '←'),
-      h(UibookPageSelect, {
-        onPageChange: props.onPageChange,
-        pages: props.pages,
-        page: props.page,
-        key: 'select'
-      }),
-      h('button', {
-        className: 'uibook-arrow',
-        onClick: onNextPage,
-        key: '→'
-      }, '→')
-    ]),
+    h('button', {
+      className: 'uibook-button is-secondary',
+      onClick: onPrevPage,
+      key: '←'
+    }, '←'),
+    h(UibookPageSelect, {
+      onPageChange: props.onPageChange,
+      pages: props.pages,
+      page: props.page,
+      key: 'select'
+    }),
+    h('button', {
+      className: 'uibook-button is-secondary',
+      onClick: onNextPage,
+      key: '→'
+    }, '→'),
     selectors.length > 0
       ? selectors.map(function (selector) {
-        return h('select', {
-          className: 'uibook-select',
+        return h(UibookSelect, {
           onChange: props.onValueChange,
           value: props.state[selector.key],
           key: selector.key,
