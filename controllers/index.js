@@ -5,6 +5,7 @@ var h = React.createElement
 var combineObjects = require('../lib/combine-objects')
 var UibookWrapper = require('../controllers/wrapper')
 var UibookLoader = require('../components/loader')
+var UibookError = require('../components/error')
 var UibookCase = require('../components/case')
 var Uibook = require('../components/index')
 
@@ -220,7 +221,7 @@ var UibookController = createReactClass({
       pages: this.props.pages,
       state: this.state,
       page: this.state.page
-    }, page.cases
+    }, page.cases && page.cases.length > 0
       ? page.cases.map(function (i, index) {
         var key = this.state.page + index
         if (typeof i === 'function') {
@@ -249,7 +250,11 @@ var UibookController = createReactClass({
           ])
         }
       }.bind(this))
-      : null
+      : h(UibookError, {
+        actionText: 'How to',
+        actionUrl: '#',
+        desc: page.name + ' contains no cases. Add them in config'
+      })
     ))
   }
 })
