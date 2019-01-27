@@ -25,6 +25,7 @@ var UibookHeader = function (props) {
   return h(Header, { key: 'header' }, [
     h(UibookButton, {
       isSecondary: true,
+      disabled: !props.page,
       onClick: props.onPrevPage,
       key: '←'
     }, '←'),
@@ -36,6 +37,7 @@ var UibookHeader = function (props) {
     }),
     h(UibookButton, {
       isSecondary: true,
+      disabled: !props.page,
       onClick: props.onNextPage,
       key: '→'
     }, '→'),

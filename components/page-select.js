@@ -33,8 +33,9 @@ var UibookPageSelect = createReactClass({
     }.bind(this))
 
     return h(UibookSelect, {
+      disabled: selectChildren.length === 0,
       onChange: this.change,
-      value: this.props.page || '',
+      value: this.props.page || 'No pages',
       id: 'uibook-page-select'
     }, selectChildren)
   }

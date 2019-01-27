@@ -167,10 +167,10 @@ var UibookController = createReactClass({
 
   changeHash: function () {
     var locale = this.state.locale ? ':' + this.state.locale : ''
-    var hash
+    var hash = ''
     if (this.state.page) {
       hash = '#' + this.state.page + locale
-    } else {
+    } else if (this.pages[0]) {
       hash = '#' + this.pages[0] + locale
     }
     if (location.hash !== hash) location.hash = hash
@@ -204,25 +204,23 @@ var UibookController = createReactClass({
   },
 
   render: function () {
+    var content
     var page = this.getPage(this.state.page || this.pages[0])
 
-    return h(UibookWrapper, {
-      wrapper: this.props.wrapper,
-      values: this.props.values,
-      state: this.state
-    }, h(Uibook, {
-      onValueChange: this.changeValue,
-      onPageChange: this.changePage,
-      background: page.background || 'default',
-      onNextPage: this.nextPage,
-      onPrevPage: this.prevPage,
-      events: this.state.events,
-      values: this.props.values,
-      pages: this.props.pages,
-      state: this.state,
-      page: this.state.page
-    }, page.cases && page.cases.length > 0
-      ? page.cases.map(function (i, index) {
+    if (!page.name) {
+      content = h(UibookError, {
+        actionText: 'How to get started',
+        actionUrl: '#',
+        desc: 'No pages'
+      })
+    } else if (!page.cases || page.cases.length === 0) {
+      content = h(UibookError, {
+        actionText: 'How to',
+        actionUrl: '#',
+        desc: page.name + ' contains no cases. Add them in config'
+      })
+    } else {
+      content = page.cases.map(function (i, index) {
         var key = this.state.page + index
         if (typeof i === 'function') {
           var component = i(this.state.locale)
@@ -250,12 +248,24 @@ var UibookController = createReactClass({
           ])
         }
       }.bind(this))
-      : h(UibookError, {
-        actionText: 'How to',
-        actionUrl: '#',
-        desc: page.name + ' contains no cases. Add them in config'
-      })
-    ))
+    }
+
+    return h(UibookWrapper, {
+      wrapper: this.props.wrapper,
+      values: this.props.values,
+      state: this.state
+    }, h(Uibook, {
+      onValueChange: this.changeValue,
+      onPageChange: this.changePage,
+      background: page.background || 'default',
+      onNextPage: this.nextPage,
+      onPrevPage: this.prevPage,
+      events: this.state.events,
+      values: this.props.values,
+      pages: this.props.pages,
+      state: this.state,
+      page: this.state.page
+    }, content))
   }
 })
 
