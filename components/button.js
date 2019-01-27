@@ -13,6 +13,7 @@ var UibookButton = createReactClass({
   render: function () {
     var atts = {
       className: 'uibook-button',
+      disabled: !!this.props.disabled,
       onClick: this.click
     }
 

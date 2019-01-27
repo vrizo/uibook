@@ -2,7 +2,10 @@ var React = require('react')
 var h = React.createElement
 
 var Wrapper = function (props) {
-  return h('div', { className: 'uibook-select__wrapper' }, props.children)
+  var className = 'uibook-select__wrapper'
+  if (props.disabled) className += ' is-disabled'
+
+  return h('div', { className: className }, props.children)
 }
 
 var Label = function (props) {
@@ -13,9 +16,10 @@ var Label = function (props) {
 }
 
 var UibookSelect = function (props) {
-  return h(Wrapper, null, [
+  return h(Wrapper, { disabled: props.disabled }, [
     h('select', {
       className: 'uibook-select',
+      disabled: props.disabled,
       onChange: props.onChange,
       value: props.value,
       key: props.id,
