@@ -50,7 +50,7 @@
   background-color: #e60278;
   border: 0;
   border-radius: 3px;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
 }
 
 .uibook-button:hover {
@@ -67,10 +67,11 @@
 .uibook-button.is-secondary {
   color: #2a2a2a;
   background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
 }
 
 .uibook-button.is-secondary:hover {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .uibook-button.is-secondary:focus,
@@ -181,6 +182,21 @@
   position: relative;
   overflow: hidden;
   line-height: 0;
+}
+
+.uibook-error {
+  width: 320px;
+  font-size: 18px;
+  padding: 25px 15px;
+}
+
+.uibook-error__icon {
+  font-size: 96px;
+  line-height: 1;
+}
+
+.uibook-error__desc {
+  margin-bottom: 15px;
 }
 
 .uibook-event {
