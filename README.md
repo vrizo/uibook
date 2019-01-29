@@ -143,6 +143,8 @@ This will render a small popup on Uibook Page when triggered.
 
 ### Special thanks
 
-@ai
-@iadramelk
-@demiazz
+[@ai](https://github.com/ai)
+[@demiazz](https://github.com/demiazz)
+[@marfitsin](https://github.com/marfitsin)
+[@iadramelk](https://github.com/iadramelk)
+[@antiflasher](https://github.com/antiflasher)

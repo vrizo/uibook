@@ -18,13 +18,22 @@ var Page = function (props) {
 }
 
 var Uibook = function (props) {
+  var atts = {
+    className: 'uibook-container',
+    key: 'body'
+  }
+
+  if (props.isEditable) atts.className += ' uibook-container__editable'
+
   return h(Page, { background: props.background }, [
     h('div', { className: 'uibook-top', key: 'top' },
       h(UibookEvents, { events: props.events })
     ),
     h(UibookHeader, {
+      onEditableSwitch: props.onEditableSwitch,
       onValueChange: props.onValueChange,
       onPageChange: props.onPageChange,
+      isEditable: props.isEditable,
       onNextPage: props.onNextPage,
       onPrevPage: props.onPrevPage,
       values: props.values,
@@ -33,7 +42,7 @@ var Uibook = function (props) {
       page: props.page,
       key: 'header'
     }),
-    h('main', { className: 'uibook-container', key: 'body' }, props.children)
+    h('main', atts, props.children)
   ])
 }
 

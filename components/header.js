@@ -2,6 +2,7 @@ var React = require('react')
 var h = React.createElement
 
 var UibookPageSelect = require('./page-select')
+var UibookCheckbox = require('./checkbox')
 var UibookSelect = require('./select')
 var UibookButton = require('./button')
 
@@ -23,24 +24,26 @@ var UibookHeader = function (props) {
   }
 
   return h(Header, { key: 'header' }, [
-    h(UibookButton, {
-      isSecondary: true,
-      disabled: !props.page,
-      onClick: props.onPrevPage,
-      key: '←'
-    }, '←'),
-    h(UibookPageSelect, {
-      onPageChange: props.onPageChange,
-      pages: props.pages,
-      page: props.page,
-      key: 'select'
-    }),
-    h(UibookButton, {
-      isSecondary: true,
-      disabled: !props.page,
-      onClick: props.onNextPage,
-      key: '→'
-    }, '→'),
+    h('nav', { className: 'uibook-nav', key: 'nav' }, [
+      h(UibookButton, {
+        isSecondary: true,
+        disabled: !props.page,
+        onClick: props.onPrevPage,
+        key: '←'
+      }, '←'),
+      h(UibookPageSelect, {
+        onPageChange: props.onPageChange,
+        pages: props.pages,
+        page: props.page,
+        key: 'select'
+      }),
+      h(UibookButton, {
+        isSecondary: true,
+        disabled: !props.page,
+        onClick: props.onNextPage,
+        key: '→'
+      }, '→')
+    ]),
     selectors.length > 0
       ? selectors.map(function (selector) {
         return h(UibookSelect, {
@@ -55,7 +58,14 @@ var UibookHeader = function (props) {
           }, value)
         }))
       })
-      : null
+      : null,
+    h('div', { className: 'uibook-spacer', key: 'spacer' }),
+    h('div', { className: 'uibook-editable', key: 'edit' },
+      h(UibookCheckbox, {
+        onChange: props.onEditableSwitch,
+        checked: props.isEditable
+      }, 'Text edit')
+    )
   ])
 }
 

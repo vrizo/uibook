@@ -35,7 +35,10 @@ var UibookFrameController = createReactClass({
       wrapper: this.props.wrapper,
       values: this.props.values,
       state: atts
-    }, h('main', null, content))
+    }, h('main', {
+      suppressContentEditableWarning: true,
+      contentEditable: atts.editable
+    }, content))
   }
 })
 

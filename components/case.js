@@ -34,7 +34,11 @@ var UibookCase = function (props) {
         key: 'example'
       }, example)
       : null,
-    children
+    h('div', {
+      suppressContentEditableWarning: true,
+      contentEditable: props.isEditable,
+      key: 'content'
+    }, children)
   ])
 }
 

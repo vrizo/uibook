@@ -17,6 +17,7 @@ var UibookController = createReactClass({
   getInitialState: function () {
     var values = this.props.values
     var state = {
+      isEditable: false,
       height: { },
       loaded: { },
       events: [],
@@ -111,6 +112,10 @@ var UibookController = createReactClass({
     this.setState({ page: page })
   },
 
+  changeEditable: function () {
+    this.setState({ isEditable: !this.state.isEditable })
+  },
+
   nextPage: function () {
     var pages = this.pages
     var current = pages.indexOf(this.state.page)
@@ -178,6 +183,7 @@ var UibookController = createReactClass({
 
   frameUrl: function (index) {
     var params = [
+      'editable=' + this.state.isEditable,
       'page=' + this.state.page,
       'case=' + index,
       'iframe=true'
@@ -225,7 +231,11 @@ var UibookController = createReactClass({
         if (typeof i === 'function') {
           var component = i(this.state.locale)
           var combinedProps = combineObjects(
-            { component: page.component, name: page.name }, component.props
+            {
+              isEditable: this.state.isEditable,
+              component: page.component,
+              name: page.name
+            }, component.props
           )
           return h('div', { key: key }, h(component.type, combinedProps))
         } else {
@@ -255,9 +265,11 @@ var UibookController = createReactClass({
       values: this.props.values,
       state: this.state
     }, h(Uibook, {
+      onEditableSwitch: this.changeEditable,
       onValueChange: this.changeValue,
       onPageChange: this.changePage,
       background: page.background || 'default',
+      isEditable: this.state.isEditable,
       onNextPage: this.nextPage,
       onPrevPage: this.prevPage,
       events: this.state.events,
