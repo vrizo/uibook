@@ -18,6 +18,7 @@ var UibookController = createReactClass({
     var values = this.props.values
     var state = {
       isEditable: false,
+      errored: { },
       height: { },
       loaded: { },
       events: [],
@@ -156,7 +157,18 @@ var UibookController = createReactClass({
 
   loaded: function (index, e) {
     var key = this.state.page + index
-    var mainHeight = e.target.contentDocument.querySelector('main').offsetHeight
+    var main = e.target.contentDocument.querySelector('main')
+
+    if (!main) {
+      this.setState(function (prevState) {
+        var errored = combineObjects(prevState.errored, {})
+        errored[key] = true
+        return { errored: errored }
+      })
+      return
+    }
+
+    var mainHeight = main.offsetHeight
     this.setState(function (prevState) {
       var loaded = combineObjects(prevState.loaded, {})
       loaded[key] = true
@@ -240,21 +252,27 @@ var UibookController = createReactClass({
           return h('div', { key: key }, h(component.type, combinedProps))
         } else {
           return h(UibookCase, { key: key, example: i.example || '' }, [
-            h(UibookLoader, {
-              isLoading: !this.state.loaded[key],
-              key: 'loader' + key
-            }, [
-              h('iframe', {
-                className: 'uibook-iframe',
-                onLoad: this.loaded.bind(this, index),
-                style: {
-                  height: this.height(i, index),
-                  width: i.width || '100%'
-                },
-                src: this.frameUrl(index),
-                key: 'iframe' + key
+            !this.state.errored[key]
+              ? h(UibookLoader, {
+                isLoading: !this.state.loaded[key],
+                key: 'loader' + key
+              }, [
+                h('iframe', {
+                  className: 'uibook-iframe',
+                  onLoad: this.loaded.bind(this, index),
+                  style: {
+                    height: this.height(i, index),
+                    width: i.width || '100%'
+                  },
+                  src: this.frameUrl(index),
+                  key: 'iframe' + key
+                })
+              ])
+              : h(UibookError, {
+                actionText: 'Possible reasons',
+                actionUrl: '#',
+                desc: page.name + ' failed to load in iframe'
               })
-            ])
           ])
         }
       }.bind(this))
