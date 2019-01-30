@@ -11,6 +11,22 @@ var Uibook = require('../components/index')
 
 var lastEventID = 0
 
+var t = {
+  noPagesAction: 'How to add pages',
+  noPagesDesc: 'No pages in configuration file',
+  noPagesUrl: '#',
+  noCasesDesc: function (page) {
+    return page + ' contains no cases. Add them in config'
+  },
+  noCasesAction: 'How to add case',
+  noCasesUrl: '#',
+  iframeErrorAction: 'Possible reasons',
+  iframeErrorUrl: '#',
+  iframeErrorDesc: function (page) {
+    return page + ' failed to load in iframe'
+  }
+}
+
 var UibookController = createReactClass({
   pages: [],
 
@@ -227,15 +243,15 @@ var UibookController = createReactClass({
 
     if (!page.name) {
       content = h(UibookError, {
-        actionText: 'How to get started',
-        actionUrl: '#',
-        desc: 'No pages'
+        actionText: t.noPagesAction,
+        actionUrl: t.noPagesUrl,
+        desc: t.noPagesDesc
       })
     } else if (!page.cases || page.cases.length === 0) {
       content = h(UibookError, {
-        actionText: 'How to',
-        actionUrl: '#',
-        desc: page.name + ' contains no cases. Add them in config'
+        actionText: t.noCasesAction,
+        actionUrl: t.noCasesUrl,
+        desc: t.noCasesDesc(page.name)
       })
     } else {
       content = page.cases.map(function (i, index) {
@@ -269,9 +285,10 @@ var UibookController = createReactClass({
                 })
               ])
               : h(UibookError, {
-                actionText: 'Possible reasons',
-                actionUrl: '#',
-                desc: page.name + ' failed to load in iframe'
+                actionText: t.iframeErrorAction,
+                actionUrl: t.iframeErrorUrl,
+                desc: t.iframeErrorDesc(page.name),
+                key: 'error' + key
               })
           ])
         }

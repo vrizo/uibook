@@ -6,6 +6,10 @@ var UibookCheckbox = require('./checkbox')
 var UibookSelect = require('./select')
 var UibookButton = require('./button')
 
+var t = {
+  textEdit: 'Text edit'
+}
+
 var Header = function (props) {
   return h('header', { className: 'uibook-header' }, props.children)
 }
@@ -64,7 +68,7 @@ var UibookHeader = function (props) {
       h(UibookCheckbox, {
         onChange: props.onEditableSwitch,
         checked: props.isEditable
-      }, 'Text edit')
+      }, t.textEdit)
     )
   ])
 }
