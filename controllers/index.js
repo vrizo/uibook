@@ -71,6 +71,7 @@ var UibookController = createReactClass({
   componentDidUpdate: function (prevProps, prevState) {
     var locale = this.state.locale
     var page = this.state.page
+
     this.changeHash()
     if (prevState.page !== page || prevState.locale !== locale) {
       this.setState({ loaded: { } })
@@ -85,6 +86,7 @@ var UibookController = createReactClass({
 
   getPage: function (name) {
     var pages = this.props.pages
+
     if (pages[name]) return pages[name]
     for (var key in pages) {
       if (pages[key].name) continue
@@ -99,6 +101,7 @@ var UibookController = createReactClass({
       args: e.detail.args,
       id: ++lastEventID
     }
+
     this.setState(function (prevState) {
       return {
         events: prevState.events.concat([event])
@@ -117,6 +120,7 @@ var UibookController = createReactClass({
 
   changeValue: function (event) {
     var state = this.state
+
     if (typeof this.props.values[event.target.id][0] === 'number') {
       state[event.target.id] = parseInt(event.target.value)
     } else {
@@ -137,6 +141,7 @@ var UibookController = createReactClass({
     var pages = this.pages
     var current = pages.indexOf(this.state.page)
     var next = current + 1
+
     if (next >= pages.length) next = 0
     this.setState({ page: pages[next] })
   },
@@ -145,6 +150,7 @@ var UibookController = createReactClass({
     var pages = this.pages
     var current = pages.indexOf(this.state.page)
     var next = current - 1
+
     if (next < 0) next = pages.length - 1
     this.setState({ page: pages[next] })
   },
@@ -154,6 +160,7 @@ var UibookController = createReactClass({
     var page = hash[0]
     var locale = hash[1]
     var pages = this.pages
+
     if (this.state.page !== page || this.state.locale !== locale) {
       if (pages.indexOf(page) === -1) {
         this.changeHash()
@@ -177,18 +184,18 @@ var UibookController = createReactClass({
 
     if (!main) {
       this.setState(function (prevState) {
-        var errored = combineObjects(prevState.errored, {})
+        var errored = combineObjects(prevState.errored, { })
         errored[key] = true
         return { errored: errored }
       })
       return
     }
-
     var mainHeight = main.offsetHeight
+
     this.setState(function (prevState) {
-      var loaded = combineObjects(prevState.loaded, {})
+      var loaded = combineObjects(prevState.loaded, { })
       loaded[key] = true
-      var height = combineObjects(prevState.height, {})
+      var height = combineObjects(prevState.height, { })
       height[key + prevState.locale] = mainHeight
 
       return {
@@ -201,6 +208,7 @@ var UibookController = createReactClass({
   changeHash: function () {
     var locale = this.state.locale ? ':' + this.state.locale : ''
     var hash = ''
+
     if (this.state.page) {
       hash = '#' + this.state.page + locale
     } else if (this.pages[0]) {

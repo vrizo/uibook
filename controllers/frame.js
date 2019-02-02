@@ -9,6 +9,7 @@ var UibookFrameController = createReactClass({
 
   getPage: function (name) {
     var pages = this.props.pages
+
     if (pages[name]) return pages[name]
     for (var key in pages) {
       if (pages[key].name) continue
@@ -19,6 +20,7 @@ var UibookFrameController = createReactClass({
 
   atts: function () {
     var result = { }
+
     location.search.slice(1).split('&').forEach(function (i) {
       var name = i.split('=')[0]
       var value = i.split('=')[1]

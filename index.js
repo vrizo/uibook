@@ -13,6 +13,7 @@ class UibookPlugin {
 
   apply (compiler) {
     let options = this.options
+
     compiler.plugin('entry-option', function (context, entry) {
       let controllerPath = options.controller
 
@@ -23,6 +24,7 @@ class UibookPlugin {
           return new SingleEntryPlugin(context, item, name)
         }
       }
+
       if (typeof entry === 'string' || Array.isArray(entry)) {
         entry = {
           main: entry,

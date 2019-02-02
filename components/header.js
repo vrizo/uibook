@@ -16,6 +16,7 @@ var Header = function (props) {
 
 var UibookHeader = function (props) {
   var selectors = []
+
   if (props.values) {
     for (var key in props.values) {
       if (props.values[key]) {

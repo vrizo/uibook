@@ -4,6 +4,10 @@ var h = React.createElement
 
 var UibookSelect = require('./select')
 
+var t = {
+  noPages: 'No pages'
+}
+
 var UibookPageSelect = createReactClass({
   change: function (e) {
     this.props.onPageChange(e.target.value)
@@ -36,7 +40,7 @@ var UibookPageSelect = createReactClass({
       disabled: selectChildren.length === 0,
       onChange: this.change,
       isAccent: true,
-      value: this.props.page || 'No pages',
+      value: this.props.page || t.noPages,
       id: 'uibook-page-select'
     }, selectChildren)
   }

@@ -2,7 +2,6 @@ var React = require('react')
 var h = React.createElement
 
 var stringify = require('../lib/stringify.js')
-// var UibookHighlight = require('./highlight')
 
 var Case = function (props) {
   return h('section', { className: 'uibook-case' }, props.children)

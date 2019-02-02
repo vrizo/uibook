@@ -23,7 +23,7 @@ var UibookCheckbox = createReactClass({
       disabled: !!this.props.disabled,
       onChange: this.change,
       tabIndex: -1,
-      checked: this.props.checked,
+      checked: !!this.props.checked,
       type: 'checkbox',
       key: 'input'
     }
