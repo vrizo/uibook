@@ -14,6 +14,7 @@ var UibookCase = function (props) {
   var componentProps = props.props || {}
   var name = props.name
   var text = props.text
+  componentProps.key = name
 
   if (typeof example === 'undefined' && name) {
     example = 'h(' + name
@@ -21,27 +22,29 @@ var UibookCase = function (props) {
     if (text) example += ', [' + stringify(text) + ']'
     example += ')'
   }
-  componentProps.key = name
+
   if (!children && component) {
     children = h(component, componentProps, text)
   } else if (children && component) {
     children = h(component, componentProps, children)
   }
 
-  return h(Case, null, [
-    example
-      ? h('code', {
-        className: 'uibook-code',
-        key: 'example'
-      }, example)
-      : null,
-    h('div', {
-      suppressContentEditableWarning: true,
-      contentEditable: props.isEditable,
-      className: 'uibook-content',
-      key: 'content'
-    }, children)
-  ])
+  return props.isFrame
+    ? children
+    : h(Case, null, [
+      example
+        ? h('code', {
+          className: 'uibook-code',
+          key: 'example'
+        }, example)
+        : null,
+      h('div', {
+        suppressContentEditableWarning: true,
+        contentEditable: props.isEditable,
+        className: 'uibook-content',
+        key: 'content'
+      }, children)
+    ])
 }
 
 UibookCase.event = function (name) {

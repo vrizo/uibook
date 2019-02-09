@@ -2,6 +2,7 @@ var createReactClass = require('create-react-class')
 var React = require('react')
 var h = React.createElement
 
+var combineObjects = require('../lib/combine-objects')
 var UibookWrapper = require('../controllers/wrapper')
 
 var UibookFrameController = createReactClass({
@@ -31,7 +32,17 @@ var UibookFrameController = createReactClass({
 
   render: function () {
     var atts = this.atts()
-    var content = this.getPage(atts.page).cases[atts.case].body(atts.locale)
+    var page = this.getPage(atts.page)
+    var component = this.getPage(atts.page).cases[atts.case].body(atts.locale)
+
+    var combinedProps = combineObjects(
+      {
+        component: page.component,
+        isFrame: true,
+        name: page.name
+      }, component.props
+    )
+    var content = h(component.type, combinedProps, component.children)
 
     return h(UibookWrapper, {
       wrapper: this.props.wrapper,
