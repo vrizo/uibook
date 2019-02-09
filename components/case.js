@@ -23,7 +23,9 @@ var UibookCase = function (props) {
   }
   componentProps.key = name
   if (!children && component) {
-    children = h(component, componentProps, [text])
+    children = h(component, componentProps, text)
+  } else if (children && component) {
+    children = h(component, componentProps, children)
   }
 
   return h(Case, null, [
