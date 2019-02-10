@@ -1,6 +1,7 @@
 var React = require('react')
 var h = React.createElement
 
+var UibookNotice = require('./notice')
 var UibookHeader = require('./header')
 var UibookEvents = require('./events')
 
@@ -29,6 +30,9 @@ var Uibook = function (props) {
     h('div', { className: 'uibook-top', key: 'top' },
       h(UibookEvents, { events: props.events })
     ),
+    props.notice
+      ? h(UibookNotice, { key: 'notice' })
+      : null,
     h(UibookHeader, {
       onEditableSwitch: props.onEditableSwitch,
       onValueChange: props.onValueChange,

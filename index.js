@@ -6,6 +6,23 @@ var trimSlashes = function (string) {
   return string.replace(/^\/+|\/+$/g, '')
 }
 
+var checkChunkExclusion = function (compilerOptions) {
+  if (!compilerOptions) return true
+  if (!compilerOptions.plugins) return true
+
+  let htmlPlugin = compilerOptions.plugins.find(function (i) {
+    return i.constructor && i.constructor.name === 'HtmlWebpackPlugin'
+  })
+
+  if (htmlPlugin && htmlPlugin.options) {
+    let exclude = htmlPlugin.options.excludeChunks
+    if (!exclude || exclude.indexOf('uibook') === -1) {
+      return false
+    }
+  }
+  return true
+}
+
 class UibookPlugin {
   constructor (options) {
     this.options = options
@@ -13,6 +30,7 @@ class UibookPlugin {
 
   apply (compiler) {
     let options = this.options
+    let isChunkExcluded = checkChunkExclusion(compiler.options)
 
     compiler.plugin('entry-option', function (context, entry) {
       let controllerPath = options.controller
@@ -46,14 +64,15 @@ class UibookPlugin {
       let scriptPath = compilation.chunks.find(function (i) {
         return i.name === 'uibook'
       }).files[0]
-      let outputPath = trimSlashes(options.outputPath) || 'uibook'
-      let title = options.title || 'uibook'
+      let outputPath = trimSlashes(options.outputPath || 'uibook')
+      let title = options.title || 'Uibook'
 
       let pathHtml = require.resolve('./src/template.html')
       let pathCss = require.resolve('./src/uibook.css')
       let UibookHtml = fs.readFileSync(pathHtml, 'utf-8')
       let UibookCss = fs.readFileSync(pathCss, 'utf-8')
 
+      UibookHtml = UibookHtml.replace(/%UIBOOK_EXCLUDED%/, isChunkExcluded)
       UibookHtml = UibookHtml.replace(/%OUTPUT_PATH%/gm, outputPath)
       UibookHtml = UibookHtml.replace(/%PUBLIC_URL%/gm, publicPath)
       UibookHtml = UibookHtml.replace(/%SCRIPT_URL%/gm, scriptPath)

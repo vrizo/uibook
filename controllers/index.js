@@ -246,6 +246,11 @@ var UibookController = createReactClass({
     }
   },
 
+  notice: function () {
+    var body = document.getElementsByTagName('body')[0]
+    return !body.dataset.uibookExcluded
+  },
+
   render: function () {
     var content
     var page = this.getPage(this.state.page || this.pages[0])
@@ -318,6 +323,7 @@ var UibookController = createReactClass({
       onPrevPage: this.prevPage,
       events: this.state.events,
       values: this.props.values,
+      notice: this.notice(),
       pages: this.props.pages,
       state: this.state,
       page: this.state.page
