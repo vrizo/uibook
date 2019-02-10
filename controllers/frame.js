@@ -33,8 +33,12 @@ var UibookFrameController = createReactClass({
   render: function () {
     var atts = this.atts()
     var page = this.getPage(atts.page)
-    var component = this.getPage(atts.page).cases[atts.case].body(atts.locale)
+    var currCase = page.cases[atts.case]
+    if (typeof currCase.body !== 'function') {
+      return null
+    }
 
+    var component = currCase.body(atts.locale)
     var combinedProps = combineObjects(
       {
         component: page.component,
