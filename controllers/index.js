@@ -171,6 +171,7 @@ var UibookController = createReactClass({
   },
 
   keyup: function (e) {
+    if (this.state.isEditable) return
     if (e.keyCode === 39) {
       this.nextPage()
     } else if (e.keyCode === 37) {

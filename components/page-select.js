@@ -37,7 +37,7 @@ var UibookPageSelect = createReactClass({
     }.bind(this))
 
     return h(UibookSelect, {
-      disabled: selectChildren.length === 0,
+      disabled: selectChildren.length === 0 || this.props.disabled,
       onChange: this.change,
       isAccent: true,
       value: this.props.page || t.noPages,

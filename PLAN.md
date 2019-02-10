@@ -21,17 +21,17 @@
 Локально обновить зависимость:
 
 ```
-$ yarn upgrade uibook-plugin
+$ yarn upgrade uibook
 ```
 
 или
 
 ```
-$ cd .. && rm -drf my-app/node_modules/uibook-plugin && cp -R uibook-plugin my-app/node_modules/uibook-plugin && cd my-app && yarn start
+$ cd .. && rm -drf my-app/node_modules/uibook && cp -R uibook my-app/node_modules/uibook && cd my-app && yarn start
 ```
 
 ```
-cd .. && rm -drf amplifr-front/node_modules/uibook-plugin && cp -R ../Opensource/uikit/uibook-plugin amplifr-front/node_modules/uibook-plugin && cd amplifr-front && yarn start
+cd .. && rm -drf amplifr-front/node_modules/uibook && cp -R ../Opensource/uikit/uibook amplifr-front/node_modules/uibook && cd amplifr-front && yarn start
 ```
 
 ======
@@ -92,11 +92,18 @@ values: {
 + no cases view
 + режим редактирования текста
 + добавить проверку, удалось ли найти main в iframe. Если нет, то рендерить ошибку
++ избавиться от пропа text, переделать на ребенка
++ переделать мобильные кейсы, чтоб всё в едином стиле было
++ проверить случай, когда компонент — функция, но нет локали (var component = i(this.state.locale))
++- написать документацию
+- отключать горячие клавиши, когда включен режим редактирования текста
+- разместить ссылки на документацию в ошибках
+- перенести Амплифер на плагин, проверить в ИЕ
 - исправить ошибку переиспользования синтетического события
-- проверить случай, когда компонент — функция, но нет локали (var component = i(this.state.locale))
-- может все-таки лучше использовать привычный большинству массив вместо объекта `pages` в пользовательском контроллере?
 - внедрить UibookHighlight
+- сделать лендинг
 - еще подумать над page: null при загрузке
+- обработка случая мобильного вида без `body`
 - проверить, что еще случайно из ES6 (легко — yarn build)
 - добавить сообщение, что нужно сделать excludeChunks
 - предотвращать проскролливание до autofocus инпутов при смене страниц

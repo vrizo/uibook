@@ -7,7 +7,7 @@ var UibookSelect = require('./select')
 var UibookButton = require('./button')
 
 var t = {
-  textEdit: 'Text edit'
+  textEdit: 'Text Edit'
 }
 
 var Header = function (props) {
@@ -32,19 +32,20 @@ var UibookHeader = function (props) {
     h('nav', { className: 'uibook-nav', key: 'nav' }, [
       h(UibookButton, {
         isSecondary: true,
-        disabled: !props.page,
+        disabled: !props.page || props.isEditable,
         onClick: props.onPrevPage,
         key: '←'
       }, '←'),
       h(UibookPageSelect, {
         onPageChange: props.onPageChange,
+        disabled: props.isEditable,
         pages: props.pages,
         page: props.page,
         key: 'select'
       }),
       h(UibookButton, {
         isSecondary: true,
-        disabled: !props.page,
+        disabled: !props.page || props.isEditable,
         onClick: props.onNextPage,
         key: '→'
       }, '→')
