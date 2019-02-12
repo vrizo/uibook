@@ -4,6 +4,7 @@ var h = React.createElement
 
 var combineObjects = require('../lib/combine-objects')
 var UibookWrapper = require('../controllers/wrapper')
+var UibookCase = require('../components/case')
 
 var UibookFrameController = createReactClass({
   pages: [],
@@ -39,15 +40,14 @@ var UibookFrameController = createReactClass({
     }
 
     var component = currCase.body(atts.locale)
-    var combinedProps = combineObjects(
-      {
-        component: page.component,
-        isFrame: true,
-        name: page.name
-      }, component.props
-    )
-    var children = component.children || component.props.children
 
+    var combinedProps = combineObjects(
+      { component: page.component, name: page.name }, component.props
+    )
+    if (component.type === UibookCase) {
+      combinedProps = combineObjects({ isFrame: true }, combinedProps)
+    }
+    var children = component.children || component.props.children
     var content = h(component.type, combinedProps, children)
 
     return h(UibookWrapper, {
