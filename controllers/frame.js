@@ -46,7 +46,9 @@ var UibookFrameController = createReactClass({
         name: page.name
       }, component.props
     )
-    var content = h(component.type, combinedProps, component.children)
+    var children = component.children || component.props.children
+
+    var content = h(component.type, combinedProps, children)
 
     return h(UibookWrapper, {
       wrapper: this.props.wrapper,
