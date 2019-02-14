@@ -63,7 +63,10 @@ class UibookPlugin {
       let publicPath = compilation.outputOptions.publicPath
       let scriptPath = compilation.chunks.find(function (i) {
         return i.name === 'uibook'
-      }).files[0]
+      }).files.find(function (i) {
+        return i.slice(-3) === '.js'
+      })
+
       let outputPath = trimSlashes(options.outputPath || 'uibook')
       let title = options.title || 'Uibook'
 
