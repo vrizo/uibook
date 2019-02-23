@@ -61,10 +61,17 @@ class UibookPlugin {
 
     compiler.plugin('emit', function (compilation, callback) {
       let publicPath = compilation.outputOptions.publicPath
-      let scriptPath = compilation.chunks.find(function (i) {
+      let imports = ''
+      let files = compilation.chunks.find(function (i) {
         return i.name === 'uibook'
-      }).files.find(function (i) {
-        return i.slice(-3) === '.js'
+      }).files
+
+      files.forEach(function (file) {
+        if (file.slice(-3) === '.js') {
+          imports += '<script src="' + publicPath + file + '"></script>'
+        } else if (file.slice(-4) === '.css') {
+          imports += '<link rel="stylesheet" href="' + publicPath + file + '">'
+        }
       })
 
       let outputPath = trimSlashes(options.outputPath || 'uibook')
@@ -78,7 +85,7 @@ class UibookPlugin {
       UibookHtml = UibookHtml.replace(/%UIBOOK_EXCLUDED%/, isChunkExcluded)
       UibookHtml = UibookHtml.replace(/%OUTPUT_PATH%/gm, outputPath)
       UibookHtml = UibookHtml.replace(/%PUBLIC_URL%/gm, publicPath)
-      UibookHtml = UibookHtml.replace(/%SCRIPT_URL%/gm, scriptPath)
+      UibookHtml = UibookHtml.replace(/%IMPORTS%/gm, imports)
       UibookHtml = UibookHtml.replace(/%TITLE%/, title)
 
       compilation.assets[outputPath + '/index.html'] = {
