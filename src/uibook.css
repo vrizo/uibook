@@ -175,6 +175,10 @@
   box-shadow: none;
 }
 
+.uibook-select__label[for="uibook-page-select"] {
+  width: 190px;
+}
+
 .uibook-checkbox__wrapper {
   position: relative;
   display: block;
