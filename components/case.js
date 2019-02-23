@@ -21,6 +21,13 @@ var UibookCase = function (props) {
     if (componentProps) example += ', ' + stringify(componentProps)
     if (text) example += ', [' + stringify(text) + ']'
     example += ')'
+  } else {
+    example = example.split('\\n').map(function (item, index) {
+      return h('span', { key: 'example' + index }, [
+        item,
+        h('br', { key: 'br' + index })
+      ])
+    })
   }
 
   if (!children && component) {
