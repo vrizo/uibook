@@ -74,7 +74,9 @@ var UibookController = createReactClass({
 
     this.changeHash()
     if (prevState.page !== page || prevState.locale !== locale) {
-      this.setState({ loaded: { } })
+      this.setState({ loaded: { } }, function () {
+        window.scrollTo(0, 0)
+      })
     }
   },
 
@@ -143,16 +145,16 @@ var UibookController = createReactClass({
     var next = current + 1
 
     if (next >= pages.length) next = 0
-    this.setState({ page: pages[next] })
+    this.changePage(pages[next])
   },
 
   prevPage: function () {
     var pages = this.pages
     var current = pages.indexOf(this.state.page)
-    var next = current - 1
+    var prev = current - 1
 
-    if (next < 0) next = pages.length - 1
-    this.setState({ page: pages[next] })
+    if (prev < 0) prev = pages.length - 1
+    this.changePage(pages[prev])
   },
 
   hashChange: function () {
