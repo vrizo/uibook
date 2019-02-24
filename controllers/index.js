@@ -35,6 +35,7 @@ var UibookController = createReactClass({
     var state = {
       isEditable: false,
       errored: { },
+      isInit: false,
       height: { },
       loaded: { },
       events: [],
@@ -66,6 +67,7 @@ var UibookController = createReactClass({
     window.addEventListener('hashchange', this.hashChange, false)
     window.addEventListener('keyup', this.keyup, false)
     this.hashChange()
+    this.setState({ isInit: true })
   },
 
   componentDidUpdate: function (prevProps, prevState) {
@@ -257,7 +259,9 @@ var UibookController = createReactClass({
     var content
     var page = this.getPage(this.state.page || this.pages[0])
 
-    if (!page.name) {
+    if (!this.state.isInit) {
+      content = h(UibookLoader, { isLoading: true })
+    } else if (!page.name) {
       content = h(UibookError, {
         actionText: t.noPagesAction,
         actionUrl: t.noPagesUrl,
