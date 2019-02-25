@@ -4,147 +4,96 @@
     alt="Sponsored by Amplifr" src="https://amplifr-direct.s3-eu-west-1.amazonaws.com/social_images/image/37b580d9-3668-4005-8d5a-137de3a3e77c.png" />
 </a>
 
-## Uibook
-Uibook is a tool for visual testing of React (but not limited to React)
-components.
-Uibook example is accessable by [https://amplifr.com/uikit](https://amplifr.com/uikit).
 
-### Install :hatching_chick:
+# Uibook
 
-Uibook is not released yet, but you can install it as git dependency:
+Uibook is a tool for visual testing of React components.
+Uibook example is accessible by [https://amplifr.com/uikit](https://amplifr.com/uikit).
 
-```bash
-$ yarn add https://github.com/vrizo/uibook
-```
+## Quick Install
 
-Do not forget to clear yarn cache before upgrading:
+Uibook has been designed for seamless integration to your project. Include it, add to plugins and you’re all set: the plugin doesn’t require separate bundler.
 
-```bash
-$ yarn cache clean && rm -R node_modules && yarn
-```
-
-### Configure :hatched_chick:
-
-The tool works with webpack only for now.
-
-1. Create controller file
-
-Sorry, more details about this point coming soon.
-
-2. Connect Uibook in your webpack configuration file
-
+_webpack.config.js_
 ```js
-let Uibook = require('uibook-plugin')
-…
+const Uibook = require('uibook')
 
-plugins: [
-  …,
-  new Uibook({
-    controller: path.join(__dirname, '../src/uibookController.js'),
-    outputPath: '/uibook',
-    title: 'Uibook'
-  })
-]
+module.exports = {
+  …
+  plugins: [
+    new Uibook({
+      outputPath: '/uibook',
+      controller: path.join(__dirname, '../src/uibook-controller.js')
+    })
+  ],
+}
 ```
 
-where:
+[Read more about installation →](docs/install.md)
 
-- `outputPath` _(optional)_ — directory to build Uibook files
-- `controller` — path to the Uibook Controller
-- `title` _(optional)_ — title of Uibook Pages in a browser
+## Describe components in Pages
 
-### Launch :rocket:
+You will need two things only:
 
-There is no need to start any additional servers or webpack instances.
-It is fully integrated to your project, so just open `/uibook`
-(or your custom address — `outputPath`) in your browser.
+1. The Page — simple object with test component name and cases.
+2. The Case — set of props and callbacks to the component.
 
-### Definitions
-
-- Page — set of Cases, for example, `Popups`
-- Case — single Component with a set of props and events
-
-### Add Page
-
-1. Create a new js file in `Uibook/` naming it as the Test Component
-2. Import `UibookCase` and the Component
-3. The file must return an object with the following keys
-
+_button.uibook.js_
 ```js
+import UibookCase from 'uibook-plugin/button/case'
+import Button from '../src/button'
+
 export default {
   component: Button,
   name: 'Button',
-  cases: [...]
+  cases: [
+    () => <UibookCase>Button</UibookCase>,
+    () => <UibookCase props={{ isSmall: true }}>Small button</UibookCase>
+  ]
 }
 ```
 
-where:
-- `component` — pass the Test Component here
-- `name` — a name of the Page
-- `cases` — an array of Cases
+[Read more about configuration →](docs/configure.md)
 
-4. Add new Page in `controllers/Uibook`
+## Pass Pages to the Controller
 
-### Add Cases
+Once you finished your first Uibook Page, you're ready to write Uibook Controller. This is a place where all Pages included and passed to UibookStarter :sparkles:
 
-Each case is an anonymous function returning `UibookCase` with
-the following parameters
-
+_uibook-controller.js_
 ```js
-() => h(UibookCase, {
-  example: 'h(Button, { href }, [\'Link\'])',
-  props: { href: '#' },
-  text: 'Link'
-}),
+import UibookStarter from 'uibook-plugin/uibook'
+import ButtonUibook from './button.uibook'
+
+export default UibookStarter({
+  pages: {
+    Button: ButtonUibook
+  }
+})
 ```
 
-where:
+[Read more about Controller →](docs/controller.md)
 
-- `example` _(optional)_ — code example, it will be rendered
-before Test Component
-- `props` — set of necessary props
-– `text` — string child of the Component
+## Launch :rocket:
 
-#### Mobile Cases
-Mobile Cases will be rendered in an iframe to emulate
-media queries.
+There is no need to start any additional servers or webpack instances.
+It is fully integrated to your project, so just run your bundler 
+and open `/uibook` (or your custom address — `outputPath`) in your browser.
 
-You can add Mobile case by wrapping a Case with the object
+## Features
 
-```js
-{
-  example: 'h(Button, PROPS)',
-  width: 320,
-  height: 320,
-  body: () => h(Button, PROPS, ['Mobile'])
-},
-```
+### Text Edit Mode — Режим редактора
+Режим редактора включает `contentEditable` для всех кейсов, позволяя редакторам посмотреть, как будут выглядеть интерфейсные тексты без открытия исходного кода программы для ЭВМ.
 
-where:
-- `example` _(optional)_ — code example, it will be rendered
-before Test Component
-- `width` and `height` _(optional)_ — the size of the iframe
-– `text` — a name of the Case
+<img src="/docs/text-edit-mode.gif" align="center" height="480" width="264" alt="Text Edit Mode" >
 
-#### Events testing
-You can pass fake events to your components as props
+Ограничение: отредактированные тексты, конечно же, нигде не сохраняются. При изменении пользовательских параметров текст может быть утерян
 
-```js
-props: {
-  onClick: UibookCase.event('onClick')
-}
-```
-
-This will render a small popup on Uibook Page when triggered.
-
-### Hot keys
-
-- Arrows change pages
-
-### Special thanks
+## Special thanks
 
 [@ai](https://github.com/ai)
 [@demiazz](https://github.com/demiazz)
 [@marfitsin](https://github.com/marfitsin)
 [@iadramelk](https://github.com/iadramelk)
 [@antiflasher](https://github.com/antiflasher)
+
+
