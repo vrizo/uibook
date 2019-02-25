@@ -27,7 +27,7 @@ export default UibookStarter({
 
 Также вы можете использовать вложенность для Страниц:
 
-<img src="/docs/structure.png" align="center" height="456" width="302" alt="Structure in Pages" >
+<img src="/docs/structure.png" align="center" width="456" height="302" alt="Structure in Pages" >
 
 ```js
  pages: {
@@ -43,7 +43,7 @@ export default UibookStarter({
 
 В этом разделе Advanced Controller описано, как добавить Обёртки, например, Redux, Context, etc и добавить свои переключатели.
 
-<img src="/docs/advanced-controller.gif" align="center" height="480" width="231" alt="Advanced Controller" >
+<img src="/docs/advanced-controller.gif" align="center" width="480" height="231" alt="Advanced Controller" >
 
 Например, передадим новый React Context API и несколько значений, который будут передаваться в Context
 

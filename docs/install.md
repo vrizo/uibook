@@ -29,7 +29,7 @@ where:
 - `outputPath` _(optional)_ — directory to build Uibook files
 - `title` _(optional)_ — title of Uibook Pages in a browser
 
-/!\ If you're using HtmlWebpackPlugin, it's necessary to exclude `uibook`:
+ :warning: If you're using HtmlWebpackPlugin, it's necessary to exclude `uibook`:
 
 ```js
 new HtmlWebpackPlugin({

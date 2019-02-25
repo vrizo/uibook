@@ -81,10 +81,10 @@ and open `/uibook` (or your custom address — `outputPath`) in your browser.
 
 ## Features
 
-### Text Edit Mode — Режим редактора
+### Text Edit Mode
 Режим редактора включает `contentEditable` для всех кейсов, позволяя редакторам посмотреть, как будут выглядеть интерфейсные тексты без открытия исходного кода программы для ЭВМ.
 
-<img src="/docs/text-edit-mode.gif" align="center" height="480" width="264" alt="Text Edit Mode" >
+<img src="/docs/text-edit-mode.gif" align="center" width="480" height="264" alt="Text Edit Mode" >
 
 Ограничение: отредактированные тексты, конечно же, нигде не сохраняются. При изменении пользовательских параметров текст может быть утерян
 
