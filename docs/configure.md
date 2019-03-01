@@ -1,7 +1,8 @@
 # Configure :hatched_chick:
-├── [Pages](#pages)
-├── [Cases](#cases)
-└── [Responsive Cases](#responsive-cases)
+
+- [Pages](#pages)
+- [Cases](#cases)
+- [Responsive Cases](#responsive-cases)
 
 ## Pages
 
@@ -50,7 +51,7 @@ where:
 
 ## Cases
 
-Кейс — это один набор параметров, передаваемых в компонент.
+Case is a single set of props passed to the Component.
 
 Each case is a function returning `UibookCase` with the following parameters:
 
@@ -73,6 +74,9 @@ where:
 before Test Component. Если не указать, то сгенерируется автоматически
 - `props` — set of necessary props
 – `text` — string child of the Component
+
+There is an optional argument `locale` if you're using. 
+Please refer to [Advanced Controller](advanced.md).
 
 ## Responsive Cases
 
@@ -112,4 +116,5 @@ This will render a small popup with arguments when triggered.
 ---
 
 [← Back to the installation guide](install.md)
+
 **[Next: Controller →](controller.md)**

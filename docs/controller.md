@@ -76,4 +76,5 @@ Uibook отобразит все пользовательские переклю
 ---
 
 [← Back to the configuration guide](configure.md)
+
 **[Next: Advanced usage →](advanced.md)**
