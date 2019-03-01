@@ -40,4 +40,5 @@ new HtmlWebpackPlugin({
 ---
 
 [← Back to the main page](../README.md)
+
 **[Next: Configuration →](configure.md)**

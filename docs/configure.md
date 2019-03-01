@@ -1,17 +1,14 @@
 # Configure :hatched_chick:
-
-Оглавление
-- Страницы
-- Кейсы (включая мобильные)
-- Контроллер
-- - Группы страниц
-- - Обертки
+├── [Pages](#pages)
+├── [Cases](#cases)
+└── [Responsive Cases](#responsive-cases)
 
 ## Pages
 
-Каждый компонент, который вы хотите тестировать, необходимо описать. Один компонент — одна страница.
+Each test component should be described. One component — one page.
 
-Для начала нужно создать Страницу — в нем будет описан один Компонент с возможными комбинациями props и events.
+First of all, let's create a Page.
+It's easier to follow the following file structure:
 
 ```
 your-project
@@ -26,15 +23,17 @@ your-project
 └── package.json
 ```
 
-:triangular_flag_on_post: Tip: run `$ npx uibook-plugin structure` to create example Uibook files. // TODO
+:triangular_flag_on_post: Tip: run `$ npx uibook-plugin structure` 
+to create example Uibook files. // TODO
 
-1. Create a new js file in `uibook/` folder naming it as the testing component (как тестируемый компонент)
-2. Import `UibookCase` and your Component
-3. Then return an object with the following keys
+1. Create a new js file in `uibook/` folder naming it 
+as a test component
+2. Open this file, import `UibookCase` and your Component
+3. Then return an object like in an example below
 
 _button.uibook.js_
 ```js
-import UibookCase from 'uibook-plugin/components/case' // попробую упростить позднее
+import UibookCase from 'uibook-plugin/components/case'
 import Button from '../src/button'
 
 export default {
@@ -75,7 +74,7 @@ before Test Component. Если не указать, то сгенерирует
 - `props` — set of necessary props
 – `text` — string child of the Component
 
-## Mobile Cases
+## Responsive Cases
 
 Mobile Cases will be rendered in an iframe to emulate
 media queries.

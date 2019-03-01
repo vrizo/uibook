@@ -7,12 +7,19 @@
 
 # Uibook
 
-Uibook is a tool for visual testing of React components.
+Uibook is a tool for visual testing of React components. With it, you can easily check desktop and mobile view of your components with different props combinations.
+
+1) Installed as a Webpack Plugin
+2) Responsive Testing
+3) Live Text Editing
+
+<img src="/docs/uibook.png" align="center" alt="Uibook" >
+
 Uibook example is accessible by [https://amplifr.com/uikit](https://amplifr.com/uikit).
 
-## Quick Install
+## Quick Install :hatching_chick:
 
-Uibook has been designed for seamless integration to your project. Include it, add to plugins and you’re all set: the plugin doesn’t require separate bundler.
+Uibook has been designed for seamless integration to your project. Install it as a webpack plugin and you’re all set: Uibook doesn’t require separate bundler.
 
 _webpack.config.js_
 ```js
@@ -31,7 +38,7 @@ module.exports = {
 
 [Read more about installation →](docs/install.md)
 
-## Describe components in Pages
+## Describe components in Pages :hatched_chick:
 
 You will need two things only:
 
@@ -79,21 +86,19 @@ There is no need to start any additional servers or webpack instances.
 It is fully integrated to your project, so just run your bundler 
 and open `/uibook` (or your custom address — `outputPath`) in your browser.
 
-## Features
-
-### Text Edit Mode
-Режим редактора включает `contentEditable` для всех кейсов, позволяя редакторам посмотреть, как будут выглядеть интерфейсные тексты без открытия исходного кода программы для ЭВМ.
+## Live Text Editing
+This mode enabled `contentEditable` for each case, allowing interface 
+editors to preview texts in components.
 
 <img src="/docs/text-edit-mode.gif" align="center" width="480" height="264" alt="Text Edit Mode" >
 
-Ограничение: отредактированные тексты, конечно же, нигде не сохраняются. При изменении пользовательских параметров текст может быть утерян
-
 ## Special thanks
 
-[@ai](https://github.com/ai)
-[@demiazz](https://github.com/demiazz)
-[@marfitsin](https://github.com/marfitsin)
-[@iadramelk](https://github.com/iadramelk)
-[@antiflasher](https://github.com/antiflasher)
+- [@ai](https://github.com/ai)
+- [@demiazz](https://github.com/demiazz)
+- [@marfitsin](https://github.com/marfitsin)
+- [@iadramelk](https://github.com/iadramelk)
+- [@antiflasher](https://github.com/antiflasher)
+- [@HellSquirrel](https://github.com/HellSquirrel)
 
 
