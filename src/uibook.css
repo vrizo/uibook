@@ -388,8 +388,16 @@ input:checked + div > .uibook-checkbox__crop {
 .uibook-event__position {
   position: fixed;
   top: 0;
-  left: calc(50% - 210px);
-  width: 420px;
+  left: calc(50% - 230px);
+  width: 460px;
+  z-index: 2;
+}
+
+@media (max-width: 550px) {
+  .uibook-event__position {
+    left: calc(50% - 150px);
+    width: 300px;
+  }
 }
 
 .uibook-event__name {
