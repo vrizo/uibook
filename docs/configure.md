@@ -1,4 +1,4 @@
-# Configure :hatched_chick:
+ # Configure :hatched_chick:
 
 - [Pages](#pages)
 - [Cases](#cases)
@@ -6,7 +6,7 @@
 
 ## Pages
 
-Each test component should be described. One component — one page.
+You should describe each test component. One component — one page.
 
 First of all, let's create a Page.
 It's easier to follow the following file structure:
@@ -27,8 +27,7 @@ your-project
 :triangular_flag_on_post: Tip: run `$ npx uibook-plugin structure` 
 to create example Uibook files. // TODO
 
-1. Create a new js file in `uibook/` folder naming it 
-as a test component
+1. Create a new js file in `uibook/` folder naming it as a test component
 2. Open this file, import `UibookCase` and your Component
 3. Then return an object like in an example below
 
@@ -51,7 +50,7 @@ where:
 
 ## Cases
 
-Case is a single set of props passed to the Component.
+A case is a single set of props passed to the Component.
 
 Each case is a function returning `UibookCase` with the following parameters:
 
@@ -71,21 +70,19 @@ export default {
 
 where:
 - `example` _(optional)_ — code example or your comments, it will be rendered
-before Test Component. Если не указать, то сгенерируется автоматически
+before Test Component.
 - `props` — set of necessary props
 – `text` — string child of the Component
 
-There is an optional argument `locale` if you're using. 
-Please refer to [Advanced Controller](advanced.md).
+There is an optional argument `locale` if you're using custom parameters. 
+Please refer to [Advanced Controller](controller.md#advanced-controller).
 
 ## Responsive Cases
 
-Mobile Cases will be rendered in an iframe to emulate
-media queries.
+Uibook render Responsive Cases in an iframe to emulate media queries.
 
-You can add Mobile case by wrapping a Case with the object
-
-Невероятная важная фича: мобильные кейсы с настоящими media-запросами. Реализовано с помощью iframe. Достаточно обернуть функцию в объект, опционально задав высоту или ширину. Если задать только ширину, то высота определяется автоматически.
+You can add Responsive Case by wrapping a Case with 
+an object with width, height or both values
 
 _button.uibook.js_
 ```js
@@ -100,7 +97,9 @@ _button.uibook.js_
 
 ## Events testing
 
-You can pass fake events to your components as props:
+<img src="/docs/events.png" align="center" alt="Events bubble" >
+
+You can pass fake events to test callbacks:
 
 _button.uibook.js_
 ```js
@@ -110,8 +109,6 @@ _button.uibook.js_
     }}>Clickable Button</UibookCase>,
   ]
 ```
-
-This will render a small popup with arguments when triggered.
 
 ---
 

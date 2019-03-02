@@ -62,9 +62,11 @@ export default {
 
 [Read more about configuration →](docs/configure.md)
 
-## Pass Pages to the Controller
+## Pass Pages to the Controller :baby_chick:
 
-Once you finished your first Uibook Page, you're ready to write Uibook Controller. This is a place where all Pages included and passed to UibookStarter :sparkles:
+Once you finished your first Uibook Page, you're ready 
+to write Uibook Controller. This is a place where all 
+Pages included and passed to UibookStarter :sparkles:
 
 _uibook-controller.js_
 ```js

@@ -1,14 +1,18 @@
 
-# Basic Controller
+# Basic Controller :baby_chick:
 
-После того, как вы описали свои компоненты в Страницах и Кейсах, их нужно передать в Uibook. Для этого используется UibookStarter.
+Once you finished your first Uibook Page, you're ready 
+to write Uibook Controller. This is a place where all 
+Pages included and passed to UibookStarter :sparkles:
 
-В разделе Advanced Controller описано, как добавить Обёртки, например, Redux, Context, etc и добавить свои переключатели.
+Let's start with a Basic Controller. You can add Redux, Context, etc 
+later in [Advanced Controller](#advanced-controller) section.
 
 1. Create `uibook-controller.js` file in `uibook/` folder
 2. Import `UibookStarter` and all your Pages
 3. Then export `UibookStarter` with the following arguments
 
+_uibook-controller.js_
 ```js
 import UibookStarter from 'uibook-plugin/uibook'
 
@@ -25,27 +29,34 @@ export default UibookStarter({
 })
 ```
 
-Также вы можете использовать вложенность для Страниц:
+You can use Pages nesting:
 
-<img src="/docs/structure.png" align="center" width="456" height="302" alt="Structure in Pages" >
+<img src="/docs/nesting.png" align="center" width="456" height="302" alt="Nesting in Pages" >
 
+_uibook-controller.js_
 ```js
- pages: {
-   Button: ButtonUibook,
-   Checkbox: CheckboxUibook,
-   Popups: {
-     Popup: PopupUibook
-   }
- }
+  pages: {
+    Button: ButtonUibook,
+    Checkbox: CheckboxUibook,
+    Popups: {
+      Popup: PopupUibook
+    }
+  }
 ```
+
+You finished your Basic Controller and now you can start `uibook` 
+with your project.
 
 # Advanced Controller
 
-В этом разделе Advanced Controller описано, как добавить Обёртки, например, Redux, Context, etc и добавить свои переключатели.
+This section describes how to add Wrappers, for example, Redux, Context, etc 
+with your switchable values.
 
-<img src="/docs/advanced-controller.gif" align="center" width="480" height="231" alt="Advanced Controller" >
+<img src="/docs/advanced-controller.gif" align="center" alt="Advanced Controller" >
 
-Например, передадим новый React Context API и несколько значений, который будут передаваться в Context
+For example, wrap the component with a new React Context API and 
+pass custom values: `locale` and `theme`. Uibook shows custom selectors 
+in top bar.
 
 ```js
 …
@@ -58,8 +69,7 @@ export default UibookStarter({
     </Context.Provider>,
   values: {
     locale: ['ru', 'en'],
-    theme: ['dark', 'light'],
-    kurica: [1, 2],
+    theme: ['dark', 'light']
   },
   pages: {
     Button: ButtonUibook,
@@ -69,12 +79,18 @@ export default UibookStarter({
 })
 ```
 
-Uibook отобразит все пользовательские переключатели в навигационном меню.
+Note: `locale` is the only prop shown in URL. 
+Also, it is passed to Case function.
 
-<тут ссылка на особенности использования `locale` — добавляется в URL, передается в функцию-кейс>
+_button.uibook.js_
+```
+  cases: [
+    locale => <UibookCase>locale === 'de' ? 'Hund' : 'Dog'</UibookCase>,
+  ]
+```
 
 ---
 
 [← Back to the configuration guide](configure.md)
 
-**[Next: Advanced usage →](advanced.md)**
+**[Next: Examples →](examples.md)**
