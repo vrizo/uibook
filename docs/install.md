@@ -1,15 +1,16 @@
-# Installation :hatching_chick:
+# Install :hatching_chick:
 
-Step 1. Uibook is not released yet, but you can install it as git dependency
+Step 1. Install the package using your favorite package manager
 
 ```bash
-$ yarn add https://github.com/vrizo/uibook
+$ yarn add uibook-plugin
 ```
 
 Step 2. Add Uibook in `webpack.config.js`
 
+_webpack.config.js_
 ```js
-const Uibook = require('uibook')
+let Uibook = require('uibook')
 
 module.exports = {
   …
@@ -25,17 +26,23 @@ module.exports = {
 
 where:
 
-- `controller` — path to the Uibook Controller (we’ll create on the next step)
-- `outputPath` _(optional)_ — directory to build Uibook files
-- `title` _(optional)_ — title of Uibook Pages in a browser
+- `controller` — path to the Uibook Controller (we’ll create it 
+on the next step)
+- `outputPath` _(optional)_ — directory to build Uibook files, 
+the default is `uibook`
+- `title` _(optional)_ — Uibook title in a browser
 
- :warning: If you're using HtmlWebpackPlugin, it's necessary to exclude `uibook`:
+:warning: If you're using HtmlWebpackPlugin, it's necessary to exclude `uibook`:
 
+_webpack.config.js_
 ```js
 new HtmlWebpackPlugin({
   excludeChunks: ['uibook']
 })
 ```
+
+Nice work! You’ve installed Uibook just now. 
+Now we can [configure it](configure.md).
 
 ---
 

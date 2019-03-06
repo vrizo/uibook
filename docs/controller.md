@@ -1,7 +1,7 @@
 
 # Basic Controller :baby_chick:
 
-Once you finished your first Uibook Page, you're ready 
+Once you finished your first [Uibook Page](configure.md), you're ready 
 to write Uibook Controller. This is a place where all 
 Pages included and passed to UibookStarter :sparkles:
 
@@ -29,7 +29,7 @@ export default UibookStarter({
 })
 ```
 
-You can use Pages nesting:
+:triangular_flag_on_post: You can use Pages nesting:
 
 <img src="/docs/nesting.png" align="center" width="456" height="302" alt="Nesting in Pages" >
 
@@ -44,19 +44,22 @@ _uibook-controller.js_
   }
 ```
 
-You finished your Basic Controller and now you can start `uibook` 
-with your project.
+Amazing! You’ve finished your Basic Controller, and now **you can start 
+Uibook** with your project.
+
+Uibook integrates into your project, so just run your bundler 
+and open `/uibook` (or your custom address) in your browser.
 
 # Advanced Controller
 
 This section describes how to add Wrappers, for example, Redux, Context, etc 
-with your switchable values.
+with **your switchable values**.
 
 <img src="/docs/advanced-controller.gif" align="center" alt="Advanced Controller" >
 
 For example, wrap the component with a new React Context API and 
 pass custom values: `locale` and `theme`. Uibook shows custom selectors 
-in top bar.
+in the top bar.
 
 ```js
 …
@@ -79,8 +82,8 @@ export default UibookStarter({
 })
 ```
 
-Note: `locale` is the only prop shown in URL. 
-Also, it is passed to Case function.
+:triangular_flag_on_post: `locale` is the only prop shown in URL. 
+Also, it is passed to Case function:
 
 _button.uibook.js_
 ```
@@ -93,4 +96,4 @@ _button.uibook.js_
 
 [← Back to the configuration guide](configure.md)
 
-**[Next: Examples →](examples.md)**
+**[Next: Troubleshooting →](troubleshooting.md)**

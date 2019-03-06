@@ -1,4 +1,4 @@
- # Configure :hatched_chick:
+# Configure :hatched_chick:
 
 - [Pages](#pages)
 - [Cases](#cases)
@@ -24,11 +24,8 @@ your-project
 └── package.json
 ```
 
-:triangular_flag_on_post: Tip: run `$ npx uibook-plugin structure` 
-to create example Uibook files. // TODO
-
 1. Create a new js file in `uibook/` folder naming it as a test component
-2. Open this file, import `UibookCase` and your Component
+2. Open the file you just created, import `UibookCase` and your Component
 3. Then return an object like in an example below
 
 _button.uibook.js_
@@ -74,12 +71,13 @@ before Test Component.
 - `props` — set of necessary props
 – `text` — string child of the Component
 
-There is an optional argument `locale` if you're using custom parameters. 
-Please refer to [Advanced Controller](controller.md#advanced-controller).
+:triangular_flag_on_post: There is an optional argument `locale` if you're 
+using custom parameters. Please refer to 
+[Advanced Controller](controller.md#advanced-controller).
 
 ## Responsive Cases
 
-Uibook render Responsive Cases in an iframe to emulate media queries.
+Uibook render Responsive Cases in an iframe to use real media queries.
 
 You can add Responsive Case by wrapping a Case with 
 an object with width, height or both values
@@ -109,6 +107,9 @@ _button.uibook.js_
     }}>Clickable Button</UibookCase>,
   ]
 ```
+
+Congratulations! You’ve finished the most challenging part. 
+It’s time to pass your first Page to the [Controller →](controller.md).
 
 ---
 

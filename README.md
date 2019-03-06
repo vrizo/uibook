@@ -7,19 +7,25 @@
 
 # Uibook
 
-Uibook is a tool for visual testing of React components. With it, you can easily check desktop and mobile view of your components with different props combinations.
+Uibook is a tool for visual testing of React components. With it, you 
+can easily check desktop and mobile view of your components with 
+different props combinations.
 
-1) Installed as a Webpack Plugin
-2) Responsive Testing
-3) Live Text Editing
+1) Responsive Testing with *real media queries*
+2) Live Text Editing allows managers, designers and text editors to check their content
+3) Installed as a Webpack Plugin, it doesn't require additional builder
 
 <img src="/docs/uibook.png" align="center" alt="Uibook" >
 
 Uibook example is accessible by [https://amplifr.com/uikit](https://amplifr.com/uikit).
 
-## Quick Install :hatching_chick:
+## Usage
 
-Uibook has been designed for seamless integration to your project. Install it as a webpack plugin and you’re all set: Uibook doesn’t require separate bundler.
+### Quick Install :hatching_chick:
+
+We have designed Uibook for seamless integration to your project. 
+Install it as a webpack plugin, and you’re all set: 
+Uibook doesn’t require separate bundler.
 
 _webpack.config.js_
 ```js
@@ -38,11 +44,11 @@ module.exports = {
 
 [Read more about installation →](docs/install.md)
 
-## Describe components in Pages :hatched_chick:
+### Describe components in Pages :hatched_chick:
 
 You will need two things only:
 
-1. The Page — simple object with test component name and cases.
+1. The Page — simple object with test component name and cases;
 2. The Case — set of props and callbacks to the component.
 
 _button.uibook.js_
@@ -62,7 +68,7 @@ export default {
 
 [Read more about configuration →](docs/configure.md)
 
-## Pass Pages to the Controller :baby_chick:
+### Pass Pages to the Controller :baby_chick:
 
 Once you finished your first Uibook Page, you're ready 
 to write Uibook Controller. This is a place where all 
@@ -82,17 +88,18 @@ export default UibookStarter({
 
 [Read more about Controller →](docs/controller.md)
 
-## Launch :rocket:
+### Launch :rocket:
 
 There is no need to start any additional servers or webpack instances.
-It is fully integrated to your project, so just run your bundler 
+Uibook integrates into your project, so just run your bundler 
 and open `/uibook` (or your custom address — `outputPath`) in your browser.
 
 ## Live Text Editing
-This mode enabled `contentEditable` for each case, allowing interface 
-editors to preview texts in components.
 
-<img src="/docs/text-edit-mode.gif" align="center" width="480" height="264" alt="Text Edit Mode" >
+This mode enables `contentEditable` for each case, allowing managers, 
+designers and interface editors to preview content in components.
+
+<img src="/docs/text-edit-mode.gif" align="center" alt="Text Edit Mode" >
 
 ## Special thanks
 
