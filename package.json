@@ -28,8 +28,8 @@
     "create-react-class": "15.6.3"
   },
   "peerDependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "webpack": "^3.8.0"
+    "react": ">= 15.0.0",
+    "react-dom": ">= 15.0.0",
+    "webpack": ">= 3.8.0"
   }
 }
