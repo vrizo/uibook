@@ -8,8 +8,8 @@
 
 You should describe each test component. One component — one page.
 
-First of all, let's create a Page.
-It's easier to follow the following file structure:
+First of all, let’s create a Page.
+It’s easier to follow the following file structure:
 
 ```
 your-project
@@ -71,7 +71,7 @@ before Test Component.
 - `props` — set of necessary props
 – `text` — string child of the Component
 
-:triangular_flag_on_post: There is an optional argument `locale` if you're 
+:triangular_flag_on_post: There is an optional argument `locale` if you’re 
 using custom parameters. Please refer to 
 [Advanced Controller](controller.md#advanced-controller).
 
@@ -109,7 +109,7 @@ _button.uibook.js_
 ```
 
 Congratulations! You’ve finished the most challenging part. 
-It’s time to pass your first Page to the [Controller →](controller.md).
+It’s time to pass your first Page to the [Controller](controller.md).
 
 ---
 

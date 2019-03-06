@@ -32,7 +32,7 @@ on the next step)
 the default is `uibook`
 - `title` _(optional)_ — Uibook title in a browser
 
-:warning: If you're using HtmlWebpackPlugin, it's necessary to exclude `uibook`:
+:warning: If you’re using HtmlWebpackPlugin, it’s necessary to exclude `uibook`:
 
 _webpack.config.js_
 ```js

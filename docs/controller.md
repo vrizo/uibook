@@ -1,11 +1,11 @@
 
 # Basic Controller :baby_chick:
 
-Once you finished your first [Uibook Page](configure.md), you're ready 
+Once you finished your first [Uibook Page](configure.md), you’re ready 
 to write Uibook Controller. This is a place where all 
 Pages included and passed to UibookStarter :sparkles:
 
-Let's start with a Basic Controller. You can add Redux, Context, etc 
+Let’s start with a Basic Controller. You can add Redux, Context, etc 
 later in [Advanced Controller](#advanced-controller) section.
 
 1. Create `uibook-controller.js` file in `uibook/` folder
@@ -45,7 +45,7 @@ _uibook-controller.js_
 ```
 
 Amazing! You’ve finished your Basic Controller, and now **you can start 
-Uibook** with your project.
+Uibook with your project**.
 
 Uibook integrates into your project, so just run your bundler 
 and open `/uibook` (or your custom address) in your browser.

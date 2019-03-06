@@ -11,19 +11,20 @@ Uibook is a tool for visual testing of React components. With it, you
 can easily check desktop and mobile view of your components with 
 different props combinations.
 
-1) Responsive Testing with *real media queries*
+1) Responsive Testing with **real media queries**
 2) Live Text Editing allows managers, designers and text editors to check their content
-3) Installed as a Webpack Plugin, it doesn't require additional builder
+3) Installed as a Webpack Plugin, it doesn’t require additional builder
 
 <img src="/docs/uibook.png" align="center" alt="Uibook" >
 
-Uibook example is accessible by [https://amplifr.com/uikit](https://amplifr.com/uikit).
+:triangular_flag_on_post: Check amazing Uibook example here: 
+[https://amplifr.com/uikit](https://amplifr.com/uikit).
 
 ## Usage
 
 ### Quick Install :hatching_chick:
 
-We have designed Uibook for seamless integration to your project. 
+We’ve designed Uibook for seamless integration to your project. 
 Install it as a webpack plugin, and you’re all set: 
 Uibook doesn’t require separate bundler.
 
@@ -70,7 +71,7 @@ export default {
 
 ### Pass Pages to the Controller :baby_chick:
 
-Once you finished your first Uibook Page, you're ready 
+Once you finished your first Uibook Page, you’re ready 
 to write Uibook Controller. This is a place where all 
 Pages included and passed to UibookStarter :sparkles:
 
