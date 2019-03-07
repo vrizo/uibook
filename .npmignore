@@ -1,9 +1,11 @@
-test/
+docs/
+node_modules/
+
 *.log
 yarn.lock
 .gitignore
 .npmignore
 .travis.yml
-node_modules
+npm-debug.log
 .editorconfig
 .vscode
