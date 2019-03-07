@@ -9,19 +9,21 @@ var UibookError = require('../components/error')
 var UibookCase = require('../components/case')
 var Uibook = require('../components/index')
 
+var DOCS_URL = 'https://github.com/vrizo/uibook/blob/master/docs/'
+
 var lastEventID = 0
 
 var t = {
   noPagesAction: 'How to add pages',
   noPagesDesc: 'No pages in configuration file',
-  noPagesUrl: '#',
+  noPagesUrl: DOCS_URL + 'troubleshooting.md#no-pages',
   noCasesDesc: function (page) {
     return page + ' contains no cases. Add them in config'
   },
   noCasesAction: 'How to add case',
-  noCasesUrl: '#',
+  noCasesUrl: DOCS_URL + 'troubleshooting.md#no-cases',
   iframeErrorAction: 'Possible reasons',
-  iframeErrorUrl: '#',
+  iframeErrorUrl: DOCS_URL + 'troubleshooting.md#iframe-error',
   iframeErrorDesc: function (page) {
     return page + ' failed to load in iframe'
   }
