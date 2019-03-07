@@ -9,11 +9,13 @@
 
 Uibook is a tool for visual testing of React components. With it, you 
 can easily check desktop and mobile view of your components with 
-different props combinations.
+different combinations of props.
 
-1) Responsive Testing with **real media queries**
-2) Live Text Editing allows managers, designers and text editors to check their content
-3) Installed as a Webpack Plugin, it doesn’t require additional builder
+The Key Features:
+- Responsive Testing for developers to play with **real media queries**
+- Live Text Editing for designers and editors to check their content
+
+Installed as a Webpack Plugin, it doesn’t require any additional builder.
 
 <img src="/docs/uibook.png" align="center" alt="Uibook" >
 
@@ -26,7 +28,7 @@ different props combinations.
 
 We’ve designed Uibook for seamless integration to your project. 
 Install it as a webpack plugin, and you’re all set: 
-Uibook doesn’t require separate bundler.
+Uibook doesn’t require any separate bundler.
 
 _webpack.config.js_
 ```js
@@ -47,7 +49,7 @@ module.exports = {
 
 ### Describe components in Pages :hatched_chick:
 
-You will need two things only:
+You should define two things only:
 
 1. The Page — simple object with test component name and cases;
 2. The Case — set of props and callbacks to the component.
@@ -71,7 +73,7 @@ export default {
 
 ### Pass Pages to the Controller :baby_chick:
 
-Once you finished your first Uibook Page, you’re ready 
+As soon as you finished your first Uibook Page, you’re ready 
 to write Uibook Controller. This is a place where all 
 Pages included and passed to UibookStarter :sparkles:
 
@@ -91,9 +93,9 @@ export default UibookStarter({
 
 ### Launch :rocket:
 
-There is no need to start any additional servers or webpack instances.
+There is no need in any additional servers or webpack instances.
 Uibook integrates into your project, so just run your bundler 
-and open `/uibook` (or your custom address — `outputPath`) in your browser.
+and open `/uibook` (or your custom address — `outputPath`) in a browser.
 
 ## Live Text Editing
 

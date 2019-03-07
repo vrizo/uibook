@@ -48,7 +48,7 @@ Amazing! You’ve finished your Basic Controller, and now **you can start
 Uibook with your project**.
 
 Uibook integrates into your project, so just run your bundler 
-and open `/uibook` (or your custom address) in your browser.
+and open `/uibook` (or your custom address) in a browser.
 
 # Advanced Controller
 
