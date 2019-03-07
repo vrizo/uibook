@@ -14,10 +14,9 @@ different combinations of props.
 The Key Features:
 - Responsive Testing for developers to play with **real media queries**
 - Live Text Editing for designers and editors to check their content
+- Installed as a Webpack Plugin, it doesn’t require any additional builder.
 
-Installed as a Webpack Plugin, it doesn’t require any additional builder.
-
-<img src="/docs/uibook.png" align="center" alt="Uibook" >
+<img src="/docs/uibook.gif" align="center" alt="Uibook key features" >
 
 :triangular_flag_on_post: Check amazing Uibook example here: 
 [https://amplifr.com/uikit](https://amplifr.com/uikit).
