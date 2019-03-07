@@ -112,5 +112,3 @@ designers and interface editors to preview content in components.
 - [@ikowalsker](https://www.facebook.com/ikowalsker)
 - [@antiflasher](https://github.com/antiflasher)
 - [@HellSquirrel](https://github.com/HellSquirrel)
-
-
