@@ -3,19 +3,19 @@
 Step 1. Install the package using your favorite package manager
 
 ```bash
-$ yarn add uibook-plugin
+$ yarn add uibook
 ```
 
 Step 2. Add Uibook in `webpack.config.js`
 
 _webpack.config.js_
 ```js
-let Uibook = require('uibook')
+let UibookPlugin = require('uibook/plugin')
 
 module.exports = {
   …
   plugins: [
-    new Uibook({
+    new UibookPlugin({
       outputPath: '/uibook',
       controller: path.join(__dirname, '../src/uibook-controller.js'),
       title: 'Uibook'

@@ -18,7 +18,7 @@
   },
   "overrides": [
     {
-      "files": [ "index.js" ],
+      "files": [ "plugin.js" ],
       "rules": {
         "es5/no-block-scoping": "off",
         "es5/no-es6-methods": "off",

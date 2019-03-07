@@ -14,7 +14,7 @@ later in [Advanced Controller](#advanced-controller) section.
 
 _uibook-controller.js_
 ```js
-import UibookStarter from 'uibook-plugin/uibook'
+import UibookStarter from 'uibook/starter'
 
 import CheckboxUibook from './checkbox.uibook'
 import ButtonUibook from './button.uibook'

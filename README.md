@@ -31,12 +31,12 @@ Uibook doesn’t require any separate bundler.
 
 _webpack.config.js_
 ```js
-const Uibook = require('uibook')
+const UibookPlugin = require('uibook/plugin')
 
 module.exports = {
   …
   plugins: [
-    new Uibook({
+    new UibookPlugin({
       outputPath: '/uibook',
       controller: path.join(__dirname, '../src/uibook-controller.js')
     })
@@ -55,7 +55,7 @@ You should define two things only:
 
 _button.uibook.js_
 ```js
-import UibookCase from 'uibook-plugin/button/case'
+import UibookCase from 'uibook/case'
 import Button from '../src/button'
 
 export default {
@@ -78,7 +78,7 @@ Pages included and passed to UibookStarter :sparkles:
 
 _uibook-controller.js_
 ```js
-import UibookStarter from 'uibook-plugin/uibook'
+import UibookStarter from 'uibook/starter'
 import ButtonUibook from './button.uibook'
 
 export default UibookStarter({

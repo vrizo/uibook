@@ -30,7 +30,7 @@ your-project
 
 _button.uibook.js_
 ```js
-import UibookCase from 'uibook-plugin/components/case'
+import UibookCase from 'uibook/case'
 import Button from '../src/button'
 
 export default {
