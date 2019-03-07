@@ -96,6 +96,12 @@ There is no need in any additional servers or webpack instances.
 Uibook integrates into your project, so just run your bundler 
 and open `/uibook` (or your custom address — `outputPath`) in a browser.
 
+### More information
+
+- [Troubleshooting](docs/troubleshooting.md)
+- [Examples](docs/examples.md)
+- [Ask me](https://twitter.com/vitaliirizo)
+
 ## Live Text Editing
 
 This mode enables `contentEditable` for each case, allowing managers, 
