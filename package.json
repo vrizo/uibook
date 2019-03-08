@@ -6,10 +6,23 @@
   "author": "Vitalii Rizo <kb@kernel-it.ru>",
   "license": "MIT",
   "keywords": [
+    "uikit",
+    "uibook",
     "react",
     "ui",
     "testing"
   ],
+  "bugs": {
+    "url": "https://github.com/vrizo/uibook/issues"
+  },
+  "homepage": "https://github.com/vrizo/uibook#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrizo/uibook.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "eslint": "5.11.1",
     "eslint-config-logux": "27.0.0",
