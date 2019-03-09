@@ -106,7 +106,7 @@ values: {
 + предотвращать проскролливание до autofocus инпутов при смене страниц
 + еще подумать над page: null при загрузке
 + заменять `\n` на `<br>` в example
-- bash script to create structure
++ Node.js script to create structure
 - разместить ссылки на документацию в ошибках
 - исправить ошибку переиспользования синтетического события
 - внедрить UibookHighlight
