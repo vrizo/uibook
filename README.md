@@ -7,9 +7,9 @@
 
 # Uibook
 
-Uibook is a tool for visual testing of React components. With it, you 
-can easily check desktop and mobile view of your components with 
-different combinations of props.
+Uibook is a tool for visual testing of React components. It let you quickly
+check both desktop and mobile view of your components with real media queries
+and different combinations of props.
 
 The Key Features:
 - Responsive Testing for developers to play with **real media queries**
@@ -18,15 +18,15 @@ The Key Features:
 
 <img src="/docs/uibook.gif" align="center" alt="Uibook key features" >
 
-:triangular_flag_on_post: Check amazing Uibook example here: 
+:triangular_flag_on_post: Check amazing Uibook example here:
 [https://amplifr.com/uikit](https://amplifr.com/uikit).
 
 ## Usage
 
 ### Quick Install :hatching_chick:
 
-We’ve designed Uibook for seamless integration to your project. 
-Install it as a webpack plugin, and you’re all set: 
+We’ve designed Uibook for seamless integration to your project.
+Install it as a webpack plugin, and you’re all set:
 Uibook doesn’t require any separate bundler.
 
 _webpack.config.js_
@@ -72,8 +72,8 @@ export default {
 
 ### Pass Pages to the Controller :baby_chick:
 
-As soon as you finished your first Uibook Page, you’re ready 
-to write Uibook Controller. This is a place where all 
+As soon as you finished your first Uibook Page, you’re ready
+to write Uibook Controller. This is a place where all
 Pages included and passed to UibookStarter :sparkles:
 
 _uibook-controller.js_
@@ -93,7 +93,7 @@ export default UibookStarter({
 ### Launch :rocket:
 
 There is no need in any additional servers or webpack instances.
-Uibook integrates into your project, so just run your bundler 
+Uibook integrates into your project, so just run your bundler
 and open `/uibook` (or your custom address — `outputPath`) in a browser.
 
 ### More information
@@ -104,7 +104,7 @@ and open `/uibook` (or your custom address — `outputPath`) in a browser.
 
 ## Live Text Editing
 
-This mode enables `contentEditable` for each case, allowing managers, 
+This mode enables `contentEditable` for each case, allowing managers,
 designers and interface editors to preview content in components.
 
 <img src="/docs/text-edit-mode.gif" align="center" alt="Text Edit Mode" >
