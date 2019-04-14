@@ -33,7 +33,7 @@
 }
 
 .uibook-top {
-  z-index: 2;
+  z-index: 3;
 }
 
 .uibook-button {
@@ -260,6 +260,7 @@ input:checked + div > .uibook-checkbox__crop {
   padding: 10px 10px 6px 10px;
   flex-wrap: wrap;
   background: rgba(0, 0, 0, 0.05);
+  z-index: 2;
 }
 
 .uibook-nav > *,
@@ -390,7 +391,7 @@ input:checked + div > .uibook-checkbox__crop {
   top: 0;
   left: calc(50% - 230px);
   width: 460px;
-  z-index: 2;
+  z-index: 3;
 }
 
 @media (max-width: 550px) {
