@@ -118,3 +118,7 @@ designers and interface editors to preview content in components.
 - [@ikowalsker](https://www.facebook.com/ikowalsker)
 - [@antiflasher](https://github.com/antiflasher)
 - [@HellSquirrel](https://github.com/HellSquirrel)
+
+Anyone is welcomed to contribute, you can check current tasks
+in [PLAN.md](PLAN.md). I would be glad to answer your questions
+about the project.
