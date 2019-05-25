@@ -254,7 +254,7 @@ var UibookController = createReactClass({
 
   notice: function () {
     var body = document.getElementsByTagName('body')[0]
-    return !body.dataset.uibookExcluded
+    return body.dataset.uibookExcluded !== 'true'
   },
 
   render: function () {
