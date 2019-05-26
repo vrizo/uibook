@@ -79,7 +79,9 @@ var UibookController = createReactClass({
     this.changeHash()
     if (prevState.page !== page || prevState.locale !== locale) {
       this.setState({ loaded: { } }, function () {
-        window.scrollTo(0, 0)
+        setTimeout(function () {
+          window.scrollTo(0, 0)
+        }, 50)
       })
     }
   },
