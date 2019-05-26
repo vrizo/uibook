@@ -12,9 +12,14 @@ var UibookCheckbox = createReactClass({
     }
   },
 
+  click: function (e) {
+    if (e.screenX > 0 && e.target && e.target.parentNode) {
+      e.target.parentNode.blur()
+    }
+  },
+
   change: function (e) {
     if (this.props.onChange) this.props.onChange(e)
-    fixClick(e)
   },
 
   render: function () {
@@ -24,6 +29,7 @@ var UibookCheckbox = createReactClass({
       onChange: this.change,
       tabIndex: -1,
       checked: !!this.props.checked,
+      onClick: this.click,
       type: 'checkbox',
       key: 'input'
     }

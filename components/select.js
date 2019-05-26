@@ -20,10 +20,15 @@ var Label = function (props) {
 }
 
 var UibookSelect = function (props) {
+  var change = function (event) {
+    event.currentTarget.blur()
+    if (props.onChange) props.onChange(event)
+  }
+
   var atts = {
     className: 'uibook-select',
     disabled: props.disabled,
-    onChange: props.onChange,
+    onChange: change,
     value: props.value,
     key: props.id,
     id: props.id
