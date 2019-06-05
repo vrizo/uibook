@@ -62,9 +62,17 @@ class UibookPlugin {
     compiler.plugin('emit', function (compilation, callback) {
       let publicPath = compilation.outputOptions.publicPath
       let imports = ''
-      let files = compilation.chunks.find(function (i) {
-        return i.name === 'uibook'
-      }).files
+      let files = []
+
+      compilation.entrypoints.forEach(function (i) {
+        if (i.name === 'uibook') {
+          i.chunks.forEach(function (chunk) {
+            if (chunk.files) {
+              files = files.concat(chunk.files)
+            }
+          })
+        }
+      })
 
       files.forEach(function (file) {
         if (file.slice(-3) === '.js') {
