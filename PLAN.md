@@ -1,5 +1,6 @@
 # TODO
 
+- add docs how to add to Create React App
 - fix synthetic reuse error
 - stylize code examples
 - create a landing page with pros, docs and videos
@@ -7,10 +8,12 @@
 - generate correct examples for Immutable in lib/stringify
 - add tests
 - add lint-staged
-- write a hack for `create-react-app`, because it doesn’t allow to modify webpack config
+- write a hack for `create-react-app`, because it doesn’t allow to modify
+webpack config without ejection
 - add PropTypes
 - add complex example in docs like `desktop-popups.uibook.js` in Amplifr
-- custom props are stringified in iframe (integer becomes string). Pass prop type to iframe?
+- custom props are stringified in iframe (integer becomes string).
+Pass prop type to iframe?
 
 
 ### Archive
@@ -33,7 +36,8 @@
 + инициализировать package.json
 + прикрутить линтер
 + реализовать iframe
-+ return '/uibook/?page=' + page + '&case=' + index + '&locale=' + locale + '&iframe=true'
++ return '/uibook/?page=' + page + '&case=' + index + '&locale=' + locale
++ '&iframe=true'
 сюда подставлять пользовательский адрес
 + создать репозиторий
 + Object.assign не поддерживается в IE, заменить на combineObjects()
@@ -47,10 +51,12 @@
 + no pages view
 + no cases view
 + режим редактирования текста
-+ добавить проверку, удалось ли найти main в iframe. Если нет, то рендерить ошибку
++ добавить проверку, удалось ли найти main в iframe. Если нет,
+то рендерить ошибку
 + избавиться от пропа text, переделать на ребенка
 + переделать мобильные кейсы, чтоб всё в едином стиле было
-+ проверить случай, когда компонент — функция, но нет локали (var component = i(this.state.locale))
++ проверить случай, когда компонент — функция, но нет локали
+(var component = i(this.state.locale))
 + написать документацию
 + отключать горячие клавиши, когда включен режим редактирования текста
 + обработка случая мобильного вида без `body` (обрабатывается ошибкой айфрема)
