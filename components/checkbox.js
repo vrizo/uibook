@@ -2,8 +2,6 @@ var createReactClass = require('create-react-class')
 var React = require('react')
 var h = React.createElement
 
-var fixClick = require('../lib/fix-click')
-
 var UibookCheckbox = createReactClass({
   spaceToggle: function (e) {
     if (e.keyCode === 32 && this.props.onChange) {
