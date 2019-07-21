@@ -61,10 +61,19 @@ class UibookPlugin {
 
     compiler.plugin('emit', function (compilation, callback) {
       let publicPath = compilation.outputOptions.publicPath
+      let entrypoints = []
       let imports = ''
       let files = []
 
-      compilation.entrypoints.forEach(function (i) {
+      if (Array.isArray(compilation.entrypoints)) {
+        entrypoints = compilation.entrypoints
+      } else if (typeof compilation.entrypoints === 'object') {
+        entrypoints = Object.values(compilation.entrypoints)
+      } else {
+        entrypoints = [compilation.entrypoints]
+      }
+
+      entrypoints.forEach(function (i) {
         if (i.name === 'uibook') {
           i.chunks.forEach(function (chunk) {
             if (chunk.files) {
