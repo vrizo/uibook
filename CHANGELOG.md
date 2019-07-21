@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.3
+* Updated dependencies to resolve security vulnerabilities
+* Fixed entrypoints iteration
+
 ## 0.5.2
 * Fixed files importing in HTML
 * Add white page troubleshooting in Create React App
