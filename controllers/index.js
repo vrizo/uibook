@@ -235,7 +235,7 @@ var UibookController = createReactClass({
     ]
 
     for (var prop in this.props.values) {
-      if (this.state.hasOwnProperty(prop)) {
+      if (this.state.hasOwnProperty(prop)) { /* eslint-disable-line */
         var key = encodeURIComponent(prop)
         var value = encodeURIComponent(this.state[prop])
         params.push(key + '=' + value)

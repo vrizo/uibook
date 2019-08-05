@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-logux/browser",
+  "extends": "@logux/eslint-config/browser",
   "rules": {
     "security/detect-possible-timing-attacks": "off",
     "node/no-missing-require": ["error", {

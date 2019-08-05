@@ -1,6 +1,6 @@
 {
   "name": "uibook",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Tool for visual testing of React components with real media queries",
   "main": "plugin.js",
   "author": "Vitalii Rizo <kb@kernel-it.ru>",
@@ -24,12 +24,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@logux/eslint-config": "^29.1.1",
+    "@logux/eslint-config": "^30.0.2",
     "eslint": "6.1.0",
     "eslint-config-standard": "13.0.1",
     "eslint-plugin-es5": "1.4.1",
     "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jest": "22.12.0",
+    "eslint-plugin-jest": "22.14.1",
     "eslint-plugin-node": "9.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-security": "1.4.0",
