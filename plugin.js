@@ -68,7 +68,9 @@ class UibookPlugin {
       if (Array.isArray(compilation.entrypoints)) {
         entrypoints = compilation.entrypoints
       } else if (typeof compilation.entrypoints === 'object') {
-        entrypoints = Object.values(compilation.entrypoints)
+        compilation.entrypoints.forEach(function (entrypoint) {
+          entrypoints.push(entrypoint)
+        })
       } else {
         entrypoints = [compilation.entrypoints]
       }
