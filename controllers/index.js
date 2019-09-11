@@ -34,9 +34,16 @@ var UibookController = createReactClass({
 
   getInitialState: function () {
     var values = this.props.values
+    var locale
+
+    if (values && values.locale) {
+      locale = values.locale[0]
+    }
+
     var state = {
       isEditable: false,
       errored: { },
+      locale: locale,
       isInit: false,
       height: { },
       loaded: { },
@@ -164,13 +171,20 @@ var UibookController = createReactClass({
   },
 
   hashChange: function () {
+    var locales = this.props.values && this.props.values.locale
+    var pages = this.pages
+
     var hash = location.hash.slice(1).split(':')
     var page = hash[0]
     var locale = hash[1]
-    var pages = this.pages
 
     if (this.state.page !== page || this.state.locale !== locale) {
       if (pages.indexOf(page) === -1) {
+        this.changeHash()
+      } else if (locales && !locale) {
+        if (pages.indexOf(page) !== -1) {
+          this.setState({ page: page })
+        }
         this.changeHash()
       } else {
         this.setState({ page: page, locale: locale })
