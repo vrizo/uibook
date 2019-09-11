@@ -49,7 +49,7 @@ class UibookPlugin {
           uibook: controllerPath
         }
       } else {
-        entry['uibook'] = controllerPath
+        entry.uibook = controllerPath
       }
 
       Object.keys(entry).forEach(function (name) {

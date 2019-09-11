@@ -7,14 +7,12 @@
 - stringify JSX mode (create examples in JSX style, not a hyperscript)
 - generate correct examples for Immutable in lib/stringify
 - add tests
-- add lint-staged
 - write a hack for `create-react-app`, because it doesn’t allow to modify
 webpack config without ejection
 - add PropTypes
 - add complex example in docs like `desktop-popups.uibook.js` in Amplifr
 - custom props are stringified in iframe (integer becomes string).
 Pass prop type to iframe?
-
 
 ### Archive
 
@@ -70,3 +68,4 @@ Pass prop type to iframe?
 + заменять `\n` на `<br>` в example
 + Node.js script to create structure
 + разместить ссылки на документацию в ошибках
++ add lint-staged

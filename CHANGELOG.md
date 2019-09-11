@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.5
+* Update dependencies
+* Added pre-commit tests
+
 ## 0.5.4
 * Update dependencies
 * Fixed entrypoints iteration if `compilation.entrypoints` is object
