@@ -31,9 +31,23 @@ class UibookPlugin {
   apply (compiler) {
     let options = this.options
     let isChunkExcluded = checkChunkExclusion(compiler.options)
+    let isHotErrored = false
 
     compiler.plugin('entry-option', function (context, entry) {
       let controllerPath = options.controller
+      let uibookEntry = controllerPath
+
+      if (options.hot) {
+        try {
+          uibookEntry = [
+            require.resolve('webpack-dev-server/client') + '?/',
+            require.resolve('webpack/hot/dev-server'),
+            controllerPath
+          ].filter(Boolean)
+        } catch (e) {
+          isHotErrored = true
+        }
+      }
 
       let itemToPlugin = function (item, name) {
         if (Array.isArray(item)) {
@@ -46,10 +60,10 @@ class UibookPlugin {
       if (typeof entry === 'string' || Array.isArray(entry)) {
         entry = {
           main: entry,
-          uibook: controllerPath
+          uibook: uibookEntry
         }
       } else {
-        entry.uibook = controllerPath
+        entry.uibook = uibookEntry
       }
 
       Object.keys(entry).forEach(function (name) {
@@ -62,6 +76,7 @@ class UibookPlugin {
     compiler.plugin('emit', function (compilation, callback) {
       let publicPath = compilation.outputOptions.publicPath
       let entrypoints = []
+      let notices = []
       let imports = ''
       let files = []
 
@@ -93,6 +108,14 @@ class UibookPlugin {
         }
       })
 
+      if (!isChunkExcluded) {
+        notices.unshift('chunk')
+      }
+      if (isHotErrored) {
+        notices.unshift('hot')
+      }
+      notices = JSON.stringify(notices)
+
       let outputPath = trimSlashes(options.outputPath || 'uibook')
       let title = options.title || 'Uibook'
 
@@ -101,9 +124,9 @@ class UibookPlugin {
       let UibookHtml = fs.readFileSync(pathHtml, 'utf-8')
       let UibookCss = fs.readFileSync(pathCss, 'utf-8')
 
-      UibookHtml = UibookHtml.replace(/%UIBOOK_EXCLUDED%/, isChunkExcluded)
       UibookHtml = UibookHtml.replace(/%OUTPUT_PATH%/gm, outputPath)
       UibookHtml = UibookHtml.replace(/%PUBLIC_URL%/gm, publicPath)
+      UibookHtml = UibookHtml.replace(/%UIBOOK_NOTICES%/, notices)
       UibookHtml = UibookHtml.replace(/%IMPORTS%/gm, imports)
       UibookHtml = UibookHtml.replace(/%TITLE%/, title)
 

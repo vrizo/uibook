@@ -31,7 +31,7 @@ var Uibook = function (props) {
       h(UibookEvents, { events: props.events })
     ),
     props.notice
-      ? h(UibookNotice, { key: 'notice' })
+      ? h(UibookNotice, { type: props.notice, key: 'notice' })
       : null,
     h(UibookHeader, {
       onEditableSwitch: props.onEditableSwitch,

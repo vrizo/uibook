@@ -18,7 +18,8 @@ module.exports = {
     new UibookPlugin({
       outputPath: '/uibook',
       controller: path.join(__dirname, '../src/uibook-controller.js'),
-      title: 'Uibook'
+      title: 'Uibook',
+      hot: true
     })
   ],
 }
@@ -26,11 +27,12 @@ module.exports = {
 
 where:
 
-- `controller` — path to the Uibook Controller (we’ll create it 
+- `controller` — path to the Uibook Controller (we’ll create it
 on the next step)
-- `outputPath` _(optional)_ — directory to build Uibook files, 
+- `outputPath` _(optional)_ — directory to build Uibook files,
 the default is `uibook`
 - `title` _(optional)_ — Uibook title in a browser
+- `hot` _(optional)_ — enable `webpack-dev-server` hot reload feature
 
 :warning: If you’re using HtmlWebpackPlugin, it’s necessary to exclude `uibook`:
 
@@ -41,7 +43,7 @@ new HtmlWebpackPlugin({
 })
 ```
 
-Nice work! You’ve installed Uibook just now. 
+Nice work! You’ve installed Uibook just now.
 Now we can [configure it](configure.md).
 
 ---

@@ -2,6 +2,7 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.5.5
+* Added Hot Reload feature
 * Update dependencies
 * Added pre-commit tests
 * Use the first locale if it is absent in URL hash

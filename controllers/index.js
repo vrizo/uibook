@@ -269,8 +269,16 @@ var UibookController = createReactClass({
   },
 
   notice: function () {
+    var notices = []
     var body = document.getElementsByTagName('body')[0]
-    return body.dataset.uibookExcluded !== 'true'
+
+    try {
+      notices = JSON.parse(body.dataset.uibookNotices)
+    } catch (error) {
+      console.log('JSON parsing error: ', error) /* eslint-disable-line */
+    }
+
+    return notices[0]
   },
 
   render: function () {

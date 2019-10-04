@@ -52,5 +52,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "optionalDependencies": {
+    "webpack-dev-server": ">=3.0.0"
   }
 }

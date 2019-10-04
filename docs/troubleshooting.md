@@ -55,6 +55,12 @@ new HtmlWebpackPlugin({
 })
 ```
 
+## Hot Reload Warning
+
+Uibook supports the hot reload feature. It requires `webpack-dev-server`.
+If you’re getting this error, please check that you’re using
+`webpack-dev-server` at least 3.0.0. If nothing helps, please create an issue.
+
 ---
 
 [← Back to the Controller](controller.md)

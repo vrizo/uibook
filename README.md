@@ -38,7 +38,8 @@ module.exports = {
   plugins: [
     new UibookPlugin({
       outputPath: '/uibook',
-      controller: path.join(__dirname, '../src/uibook-controller.js')
+      controller: path.join(__dirname, '../src/uibook-controller.js'),
+      hot: true
     })
   ],
 }

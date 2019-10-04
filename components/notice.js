@@ -4,24 +4,30 @@ var h = React.createElement
 var DOCS_URL = 'https://github.com/vrizo/uibook/blob/master/docs/'
 
 var t = {
-  chunkNotice: 'Exclude Uibook chunk from HtmlWebpackPlugin',
-  chunkNoticeAction: 'Read how'
+  hotUrl: 'troubleshooting.md#hot-reload-warning',
+  hotText: 'Failed to activate hot reload',
+  hotAction: 'Read more',
+  chunkUrl: 'troubleshooting.md#exclude-chunk-warning',
+  chunkText: 'Exclude Uibook chunk from HtmlWebpackPlugin',
+  chunkAction: 'Read how'
 }
 
-var UibookNotice = function () {
+var Uibook = function (props) {
+  var type = props.type
+
   return h('a', {
     className: 'uibook-notice',
-    href: DOCS_URL + 'troubleshooting.md#exclude-chunk-warning'
+    href: DOCS_URL + t[type + 'Url']
   }, [
     h('div', {
       className: 'uibook-notice__text',
       key: 'message'
-    }, t.chunkNotice),
+    }, t[type + 'Text']),
     h('div', {
       className: 'uibook-notice__action',
       key: 'link'
-    }, t.chunkNoticeAction)
+    }, t[type + 'Action'])
   ])
 }
 
-module.exports = UibookNotice
+module.exports = Uibook
