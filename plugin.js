@@ -36,12 +36,17 @@ class UibookPlugin {
     compiler.plugin('entry-option', function (context, entry) {
       let controllerPath = options.controller
       let uibookEntry = controllerPath
+      let hasHMR = false
+
+      if (compiler.options && compiler.options.devServer) {
+        hasHMR = compiler.options.devServer.hot
+      }
 
       if (options.hot) {
         try {
           uibookEntry = [
             require.resolve('webpack-dev-server/client') + '?/',
-            require.resolve('webpack/hot/dev-server'),
+            hasHMR ? require.resolve('webpack/hot/dev-server') : null,
             controllerPath
           ].filter(Boolean)
         } catch (e) {

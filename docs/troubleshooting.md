@@ -61,6 +61,11 @@ Uibook supports the hot reload feature. It requires `webpack-dev-server`.
 If you’re getting this error, please check that you’re using
 `webpack-dev-server` at least 3.0.0. If nothing helps, please create an issue.
 
+## HMR doesn’t work
+
+If you wish to enable HMR in Uibook, please add `hot: true` both to `devServer`
+and `UibookPlugin` in your webpack configuration file.
+
 ---
 
 [← Back to the Controller](controller.md)

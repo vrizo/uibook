@@ -99,7 +99,7 @@ and open `/uibook` (or your custom address — `outputPath`) in a browser.
 
 ### More information
 
-- [Troubleshooting](docs/troubleshooting.md)
+- **[Troubleshooting](docs/troubleshooting.md)**
 - [Examples](docs/examples.md)
 - [Ask me](https://twitter.com/vitaliirizo)
 
