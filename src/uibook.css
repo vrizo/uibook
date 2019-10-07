@@ -168,6 +168,7 @@
   box-shadow:
     0 0 0 2px #009aff,
     0 0 7px 0 #009aff;
+  outline: none;
 }
 
 .uibook-select:disabled + label {
@@ -405,6 +406,20 @@ input:checked + div > .uibook-checkbox__crop {
   font-weight: bold;
 }
 
+.uibook-go-to-top {
+  position: fixed;
+  padding: 0;
+  bottom: 15px;
+  right: 15px;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
 .uibook-case {
   padding: 0 10px 10px 10px;
 }
@@ -415,7 +430,7 @@ input:checked + div > .uibook-checkbox__crop {
   font-size: 13px;
   margin: 5px -10px 10px;
   padding: 4px 14px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .uibook-content[contenteditable=true] {

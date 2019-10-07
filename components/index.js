@@ -1,6 +1,7 @@
 var React = require('react')
 var h = React.createElement
 
+var UibookGoToTop = require('../controllers/go-to-top')
 var UibookNotice = require('./notice')
 var UibookHeader = require('./header')
 var UibookEvents = require('./events')
@@ -30,6 +31,7 @@ var Uibook = function (props) {
     h('div', { className: 'uibook-top', key: 'top' },
       h(UibookEvents, { events: props.events })
     ),
+    h(UibookGoToTop, { key: 'go-top' }),
     props.notice
       ? h(UibookNotice, { type: props.notice, key: 'notice' })
       : null,
