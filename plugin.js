@@ -93,8 +93,8 @@ class UibookPlugin {
             entrypoints.push(entrypoint)
           })
         } else {
-          Object.keys(compilation.entrypoints).forEach((ep) => {
-            entrypoints.push(compilation.entrypoints[ep])
+          Object.keys(compilation.entrypoints).forEach(function (entrypoint) {
+            entrypoints.push(compilation.entrypoints[entrypoint])
           })
         }
       } else {
