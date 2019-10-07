@@ -16,8 +16,9 @@ module.exports = {
   …
   plugins: [
     new UibookPlugin({
-      outputPath: '/uibook',
+      isFixedHeader: true,
       controller: path.join(__dirname, '../src/uibook-controller.js'),
+      outputPath: '/uibook',
       title: 'Uibook',
       hot: true
     })
@@ -27,8 +28,10 @@ module.exports = {
 
 where:
 
-- `controller` — path to the Uibook Controller (we’ll create it
+- `controller` — **path to the Uibook Controller** (we’ll create it
 on the next step)
+- `isFixedHeader` _(optional)_ — enables or disables sticky header,
+the default is `true`
 - `outputPath` _(optional)_ — directory to build Uibook files,
 the default is `uibook`
 - `title` _(optional)_ — Uibook title in a browser

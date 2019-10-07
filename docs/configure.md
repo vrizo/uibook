@@ -57,6 +57,7 @@ Each case is a function returning `UibookCase` with the following parameters:
 _button.uibook.js_
 ```js
 export default {
+  background: 'light',
   component: Button,
   name: 'Button',
   cases: [
@@ -69,6 +70,7 @@ export default {
 ```
 
 where:
+- `background` _(optional)_ — page background: `light`/`dark`/`default`
 - `example` _(optional)_ — code example or your comments, it will be rendered
 before Test Component.
 - `props` — set of necessary props

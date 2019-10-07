@@ -23,6 +23,11 @@ var checkChunkExclusion = function (compilerOptions) {
   return true
 }
 
+var getSettings = function (options) {
+  return {
+    isFixedHeader: !(options.isFixedHeader === false)
+  }
+}
 class UibookPlugin {
   constructor (options) {
     this.options = options
@@ -128,6 +133,7 @@ class UibookPlugin {
       notices = JSON.stringify(notices)
 
       let outputPath = trimSlashes(options.outputPath || 'uibook')
+      let settings = JSON.stringify(getSettings(options))
       let title = options.title || 'Uibook'
 
       let pathHtml = require.resolve('./src/template.html')
@@ -137,7 +143,8 @@ class UibookPlugin {
 
       UibookHtml = UibookHtml.replace(/%OUTPUT_PATH%/gm, outputPath)
       UibookHtml = UibookHtml.replace(/%PUBLIC_URL%/gm, publicPath)
-      UibookHtml = UibookHtml.replace(/%UIBOOK_NOTICES%/, notices)
+      UibookHtml = UibookHtml.replace(/%SETTINGS%/, settings)
+      UibookHtml = UibookHtml.replace(/%NOTICES%/, notices)
       UibookHtml = UibookHtml.replace(/%IMPORTS%/gm, imports)
       UibookHtml = UibookHtml.replace(/%TITLE%/, title)
 

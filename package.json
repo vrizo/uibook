@@ -1,6 +1,6 @@
 {
   "name": "uibook",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "Tool for visual testing of React components with real media queries",
   "main": "plugin.js",
   "author": "Vitalii Rizo <kb@kernel-it.ru>",

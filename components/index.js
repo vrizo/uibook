@@ -9,6 +9,7 @@ var UibookEvents = require('./events')
 var THEMES = {
   default: '#f2f2f2',
   white: '#fff',
+  light: '#fff',
   dark: '#ddd'
 }
 
@@ -25,7 +26,8 @@ var Uibook = function (props) {
     key: 'body'
   }
 
-  if (props.isEditable) atts.className += ' uibook-container__editable'
+  if (props.isFixedHeader) atts.className += ' is-fixed'
+  if (props.isEditable) atts.className += ' is-editable'
 
   return h(Page, { background: props.background }, [
     h('div', { className: 'uibook-top', key: 'top' },
@@ -39,9 +41,11 @@ var Uibook = function (props) {
       onEditableSwitch: props.onEditableSwitch,
       onValueChange: props.onValueChange,
       onPageChange: props.onPageChange,
+      background: props.background,
       isEditable: props.isEditable,
       onNextPage: props.onNextPage,
       onPrevPage: props.onPrevPage,
+      isFixed: props.isFixedHeader,
       values: props.values,
       pages: props.pages,
       state: props.state,

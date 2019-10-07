@@ -28,8 +28,12 @@
   transition: border-width 300ms;
 }
 
-.uibook-container__editable {
+.uibook-container.is-editable {
   border-width: 5px;
+}
+
+.uibook-container.is-fixed {
+  padding-top: 67px;
 }
 
 .uibook-top {
@@ -258,10 +262,15 @@ input:checked + div > .uibook-checkbox__crop {
 
 .uibook-header {
   display: flex;
+  width: calc(100% - 20px);
   padding: 10px 10px 6px 10px;
   flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.05);
   z-index: 2;
+  transition: background 300ms;
+}
+
+.uibook-header.is-fixed {
+  position: fixed;
 }
 
 .uibook-nav > *,

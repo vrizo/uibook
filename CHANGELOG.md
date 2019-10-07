@@ -1,8 +1,15 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.7
+* Added "Go to Top" button
+* Sticky header by default
+* `white` background is deprecated. Please use `light` instead
+* Fixed support of entrypoints as objects
+  (@helsi-pro https://github.com/vrizo/uibook/pull/9)
+
 ## 0.5.6
-* Fix HMR module loading if it is disabled in `devServer`
+* Fixed HMR module loading if it is disabled in `devServer`
 
 ## 0.5.5
 * Added Hot Reload feature
@@ -20,14 +27,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.5.2
 * Fixed files importing in HTML
-* Add white page troubleshooting in Create React App
+* Added white page troubleshooting in Create React App
 
 ## 0.5.1
-* Fixed events toast z-index;
-* Fixed HtmlWebpackPlugin detector;
-* Fixed strinfying of ReactComponents/ReactElements;
-* Added delay before scrollTo() after Page switching;
-* Fixed blur() after click by mouse on Checkbox and Select.
+* Fixed events toast z-index
+* Fixed HtmlWebpackPlugin detector
+* Fixed strinfying of ReactComponents/ReactElements
+* Added delay before scrollTo() after Page switching
+* Fixed blur() after click by mouse on Checkbox and Select
 
 ## 0.5
 * Initial release.

@@ -6,12 +6,26 @@ var UibookCheckbox = require('./checkbox')
 var UibookSelect = require('./select')
 var UibookButton = require('./button')
 
+var THEMES = {
+  default: '#e6e6e6',
+  white: '#f2f2f2',
+  light: '#f2f2f2',
+  dark: '#d2d2d2'
+}
+
 var t = {
   textEdit: 'Text Edit'
 }
 
 var Header = function (props) {
-  return h('header', { className: 'uibook-header' }, props.children)
+  var atts = {
+    className: 'uibook-header',
+    style: { background: THEMES[props.background] }
+  }
+
+  if (props.isFixed) atts.className += ' is-fixed'
+
+  return h('header', atts, props.children)
 }
 
 var UibookHeader = function (props) {
@@ -28,7 +42,11 @@ var UibookHeader = function (props) {
     }
   }
 
-  return h(Header, { key: 'header' }, [
+  return h(Header, {
+    background: props.background,
+    isFixed: props.isFixed,
+    key: 'header'
+  }, [
     h('nav', { className: 'uibook-nav', key: 'nav' }, [
       h(UibookButton, {
         isSecondary: true,

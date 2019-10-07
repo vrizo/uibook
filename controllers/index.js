@@ -14,6 +14,8 @@ var DOCS_URL = 'https://github.com/vrizo/uibook/blob/master/docs/'
 var lastEventID = 0
 
 var t = {
+  backgroundDeprecated: '\'white\' background is deprecated. ' +
+                        'Please use \'light\' instead',
   noPagesAction: 'How to add pages',
   noPagesDesc: 'No pages in configuration file',
   noPagesUrl: DOCS_URL + 'troubleshooting.md#no-pages',
@@ -42,6 +44,8 @@ var UibookController = createReactClass({
 
     var state = {
       isEditable: false,
+      settings: this.settings(),
+      notices: this.notice(),
       errored: { },
       locale: locale,
       isInit: false,
@@ -281,9 +285,26 @@ var UibookController = createReactClass({
     return notices[0]
   },
 
+  settings: function () {
+    var settings = { }
+    var body = document.getElementsByTagName('body')[0]
+
+    try {
+      settings = JSON.parse(body.dataset.uibookSettings)
+    } catch (error) {
+      console.log('JSON parsing error: ', error) /* eslint-disable-line */
+    }
+
+    return settings
+  },
+
   render: function () {
     var content
     var page = this.getPage(this.state.page || this.pages[0])
+
+    if (page.background === 'white') {
+      console.warn(t.backgroundDeprecated) /* eslint-disable-line */
+    }
 
     if (!this.state.isInit) {
       content = h(UibookLoader, { isLoading: true })
@@ -347,6 +368,7 @@ var UibookController = createReactClass({
       state: this.state
     }, h(Uibook, {
       onEditableSwitch: this.changeEditable,
+      isFixedHeader: this.state.settings.isFixedHeader,
       onValueChange: this.changeValue,
       onPageChange: this.changePage,
       background: page.background || 'default',
@@ -355,7 +377,7 @@ var UibookController = createReactClass({
       onPrevPage: this.prevPage,
       events: this.state.events,
       values: this.props.values,
-      notice: this.notice(),
+      notice: this.state.notice,
       pages: this.props.pages,
       state: this.state,
       page: this.state.page
