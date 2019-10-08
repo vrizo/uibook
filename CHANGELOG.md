@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * `name` in Case is deprecated. It was the same as the key in Uibook Controller,
   so it was unnecessary duplication. You should set Page Name in
   the Uibook Controller now.
+* Fixed overlapping of a Case content and the header bar
 
 ## 0.5.8
 * Added support of Cyrillic component names

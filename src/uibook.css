@@ -22,6 +22,7 @@
 }
 
 .uibook-container {
+  position: relative;
   padding: 10px 0;
   z-index: 1;
   border: 0 solid #55d53e;
