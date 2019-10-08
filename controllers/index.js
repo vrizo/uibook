@@ -178,8 +178,11 @@ var UibookController = createReactClass({
     var locales = this.props.values && this.props.values.locale
     var pages = this.pages
 
-    var hash = location.hash.slice(1).split(':')
-    var page = hash[0]
+    var location = window.location.href.split('#')
+    var hash = location[1] || ''
+    hash = hash.split(':')
+
+    var page = decodeURIComponent(hash[0])
     var locale = hash[1]
 
     if (this.state.page !== page || this.state.locale !== locale) {

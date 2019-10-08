@@ -8,16 +8,27 @@ var t = {
   noPages: 'No pages'
 }
 
+var unprepareName = function (name) {
+  return name.replace(/ /g, '')
+}
+
+var prepareName = function (name) {
+  return name.replace(/([a-zа-яёђѓєѕіїјљњћќўџґ])([A-ZА-ЯЁЂЃЄЅІЇЈЉЊЋЌЎЏҐ])/g,
+    '$1 $2')
+}
+
 var UibookPageSelect = createReactClass({
   change: function (e) {
-    this.props.onPageChange(e.target.value)
+    var name = unprepareName(e.target.value)
+
+    this.props.onPageChange(name)
     e.target.blur()
   },
 
   optionFromPage: function (page) {
-    var re = /($[a-z])|[A-Z][^A-Z]+/g
-    var preparedName = page.name.match(re).join(' ')
-    return h('option', { key: page.name, value: page.name }, preparedName)
+    var preparedName = prepareName(page.name)
+
+    return h('option', { key: page.name, value: preparedName }, preparedName)
   },
 
   render: function () {
@@ -40,7 +51,7 @@ var UibookPageSelect = createReactClass({
       disabled: selectChildren.length === 0 || this.props.disabled,
       onChange: this.change,
       isAccent: true,
-      value: this.props.page || t.noPages,
+      value: prepareName(this.props.page || t.noPages),
       id: 'uibook-page-select'
     }, selectChildren)
   }

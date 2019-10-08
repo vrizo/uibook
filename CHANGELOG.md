@@ -1,6 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.8
+* Added support of Cyrillic component names
+* Fixed converting of CamelCase to space separated words in Page Selector
+* Fixed unchangable Select
+
 ## 0.5.7
 * Added "Go to Top" button
 * Sticky header by default
