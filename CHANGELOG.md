@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.1
+* Fixed link in deprecation warning
+
 ## 0.6.0
 * `name` in Case is deprecated. It was the same as the key in Uibook Controller,
   so it was unnecessary duplication. You should set Page Name in

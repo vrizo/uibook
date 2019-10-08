@@ -11,7 +11,7 @@ var DOCS_URL = 'https://github.com/vrizo/uibook/blob/master/'
 var t = {
   nameDeprecated: function (name) {
     return 'Key \'name\' is deprecated. You can remove it in ' + name +
-           '. Details: ' + DOCS_URL + 'CHANGELOG.md#059'
+           '. Details: ' + DOCS_URL + 'CHANGELOG.md#060'
   }
 }
 
