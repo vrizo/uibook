@@ -21,8 +21,8 @@ var Label = function (props) {
 
 var UibookSelect = function (props) {
   var change = function (event) {
-    event.currentTarget.blur()
     if (props.onChange) props.onChange(event)
+    event.currentTarget.blur()
   }
 
   var atts = {
