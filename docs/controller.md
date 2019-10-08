@@ -29,7 +29,17 @@ export default UibookStarter({
 })
 ```
 
-_Please note, that key in object must be the same as `name` in a Page._
+:triangular_flag_on_post: The key represents Page Name.
+You can use any Name in CamelCase:
+
+_uibook-controller.js_
+```js
+{
+  TheBestButton: ButtonUibook,
+  Agree: CheckboxUibook,
+  ВсплывающееОкно: PopupUibook
+}
+```
 
 :triangular_flag_on_post: You can use Pages nesting:
 

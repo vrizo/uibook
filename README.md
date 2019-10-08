@@ -61,7 +61,6 @@ import Button from '../src/button'
 
 export default {
   component: Button,
-  name: 'Button',
   cases: [
     () => <UibookCase>Button</UibookCase>,
     () => <UibookCase props={{ isSmall: true }}>Small button</UibookCase>

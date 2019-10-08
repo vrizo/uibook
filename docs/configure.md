@@ -59,7 +59,6 @@ _button.uibook.js_
 export default {
   background: 'light',
   component: Button,
-  name: 'Button',
   cases: [
     () => <UibookCase props={{ href: '#' }}>Button</UibookCase>,
     () => <UibookCase props={{ isSmall: true, href: '#' }}>
@@ -73,9 +72,6 @@ where:
 - `background` _(optional)_ — page background: `light`/`dark`/`default`
 - `example` _(optional)_ — code example or your comments, it will be rendered
 before Test Component
-- `name` — Page name. I recommend using your Component name.
-You can use any other CamelCase word (support Cyrillic). It must be the same
-as key in Uibook Controller
 - `props` — set of necessary props
 – `text` — string child of the Component
 

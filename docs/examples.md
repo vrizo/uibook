@@ -72,7 +72,6 @@ import UibookCase from 'uibook/case'
 
 const ButtonUibook = {
   component: Button,
-  name: 'Button',
   cases: [
     () => <UibookCase example="Код\n и переносы" props={{ ...PROPS }}>
       First Button
@@ -94,7 +93,6 @@ _checkbox.uibook.js_
 var CheckboxUibook = {
   background: 'dark',
   component: Checkbox,
-  name: 'Checkbox',
   cases: [
     () => <UibookCase>First</UibookCase>,
     () => <UibookCase props={{ isChecked: true }}>Checked</UibookCase>,
