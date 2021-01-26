@@ -13,7 +13,7 @@ var unprepareName = function (name) {
 }
 
 var prepareName = function (name) {
-  return name.replace(/([a-zа-яёђѓєѕіїјљњћќўџґ])([A-ZА-ЯЁЂЃЄЅІЇЈЉЊЋЌЎЏҐ])/g,
+  return name.replace(/([a-zа-яёђѓєѕіїјљњћќўџґ])([A-ZЁЂЃЄЅІЇЈЉЊЋЌЎЏА-ЯҐ])/g,
     '$1 $2')
 }
 

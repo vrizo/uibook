@@ -1,16 +1,27 @@
 {
-  "extends": "@logux/eslint-config/browser",
+  "extends": "@logux/eslint-config",
+  "plugins": [
+    "prettierx"
+  ],
   "rules": {
     "security/detect-possible-timing-attacks": "off",
+    "unicorn/prefer-optional-catch-binding": "off",
     "node/no-missing-require": ["error", {
       "allowModules": ["webpack"]
     }],
+    "unicorn/prefer-includes": "off",
+    "prefer-let/prefer-let": "off",
+    "prefer-arrow-callback": "off",
+    "prefer-rest-params": "off",
     "multiline-ternary": [
       "error",
       "always-multiline"
     ],
+    "prettierx/options": "off",
+    "object-shorthand": "off",
     "func-style": ["error", "expression"],
-    "no-console": "error"
+    "no-console": "error",
+    "no-var": "off"
   },
   "env": {
     "browser": true,

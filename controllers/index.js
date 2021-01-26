@@ -46,11 +46,11 @@ var UibookController = createReactClass({
       isEditable: false,
       settings: this.settings(),
       notices: this.notice(),
-      errored: { },
+      errored: {},
       locale: locale,
       isInit: false,
-      height: { },
-      loaded: { },
+      height: {},
+      loaded: {},
       events: [],
       page: null
     }
@@ -89,7 +89,7 @@ var UibookController = createReactClass({
 
     this.changeHash()
     if (prevState.page !== page || prevState.locale !== locale) {
-      this.setState({ loaded: { } }, function () {
+      this.setState({ loaded: {} }, function () {
         setTimeout(function () {
           window.scrollTo(0, 0)
         }, 50)
@@ -111,7 +111,7 @@ var UibookController = createReactClass({
       if (pages[key].name) continue
       if (pages[key][name]) return pages[key][name]
     }
-    return { }
+    return {}
   },
 
   track: function (e) {
@@ -214,7 +214,7 @@ var UibookController = createReactClass({
 
     if (!main) {
       this.setState(function (prevState) {
-        var errored = combineObjects(prevState.errored, { })
+        var errored = combineObjects(prevState.errored, {})
         errored[key] = true
         return { errored: errored }
       })
@@ -223,9 +223,9 @@ var UibookController = createReactClass({
     var mainHeight = main.offsetHeight
 
     this.setState(function (prevState) {
-      var loaded = combineObjects(prevState.loaded, { })
+      var loaded = combineObjects(prevState.loaded, {})
       loaded[key] = true
-      var height = combineObjects(prevState.height, { })
+      var height = combineObjects(prevState.height, {})
       height[key + prevState.locale] = mainHeight
 
       return {
@@ -289,7 +289,7 @@ var UibookController = createReactClass({
   },
 
   settings: function () {
-    var settings = { }
+    var settings = {}
     var body = document.getElementsByTagName('body')[0]
 
     try {

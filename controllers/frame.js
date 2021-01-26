@@ -17,11 +17,11 @@ var UibookFrameController = createReactClass({
       if (pages[key].name) continue
       if (pages[key][name]) return pages[key][name]
     }
-    return { }
+    return {}
   },
 
   atts: function () {
-    var result = { }
+    var result = {}
 
     location.search.slice(1).split('&').forEach(function (i) {
       var name = i.split('=')[0]
