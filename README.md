@@ -46,6 +46,7 @@ module.exports = {
 ```
 
 [Read more about installation →](docs/install.md)
+[Install in Create React App using CRACO →](docs/install_craco.md)
 
 ### Describe components in Pages :hatched_chick:
 
