@@ -1,4 +1,36 @@
 
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=vrizo&project=uibook&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
+
 <a href="https://www.facebook.com/amplifr/">
   <img width="80" height="80" align="right"
     alt="Sponsored by Amplifr" src="./amplifr-logo.png" style="border-radius: 100%; margin: 10px;"/>
